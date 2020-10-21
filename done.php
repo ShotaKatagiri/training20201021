@@ -34,12 +34,12 @@ $message = "この度は、お問い合わせ頂き誠にありがとうござ�
 $header = "From: KEIBA-navi.info@gmail.com";
 
 
-if(!empty(mb_send_mail($mail, $subject, $message, $header))){
-    $_SESSION['mail'] = mb_send_mail($mail, $subject, $message, $header);
-    $isValidated = true;
-}else{
-    echo '送信失敗しました。';
-}
+// if(!empty(mb_send_mail($mail, $subject, $message, $header))){
+//     $_SESSION['mail'] = mb_send_mail($mail, $subject, $message, $header);
+//     $isValidated = true;
+// }else{
+//     echo '送信失敗しました。';
+// }
 
 
     // POSTされたトークンを持ち、セッションのトークンとマッチした場合
@@ -47,6 +47,7 @@ if(!empty(mb_send_mail($mail, $subject, $message, $header))){
     if (isset($_POST["csrf_token"])
     && $_POST["csrf_token"] === $_SESSION['csrf_token']) {
        mb_send_mail($mail, $subject, $message, $header);
+       $isValidated = true;
    } else {
     echo "不正なリクエストです";
 

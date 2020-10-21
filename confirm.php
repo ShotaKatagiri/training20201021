@@ -307,7 +307,7 @@ if (!empty($_POST)) {
                         <?php endif;?>">  */ ?>
 
         <!-- バリデーションがfalseであれば。 -->
-    <?php elseif ($isValidated == true) : ?>
+    <?php else: ?>
         <form action="" method="post">
         <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
             <table class="verification">
@@ -353,7 +353,7 @@ if (!empty($_POST)) {
                 </tr>
                 <tr>
                     <th>お問い合わせ内容 <span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="body" value="<?=h($body)?>"><?= h($body) ?></td>
+                    <td class="bodyverifi"><input type="hidden" name="body" value="<?=h($body)?>"><?= h($body) ?></td>
                 </tr>
             </table>
             <p class="submit">
