@@ -1,0 +1,77 @@
+h2{
+border-style:solid;
+border-right-style:hidden;
+border-left-style:hidden;
+font-size:50px;
+}
+
+h6 {
+font-size: 20px;
+color: #6a3906;
+line-height:100%;
+width:80%;
+margin: 5px; 
+margin-top:0;
+margin-bottom:0;
+padding: 5px 20px;
+border-left: 10px solid #077e04;
+border-bottom: 4px double #ccc;
+
+}
+
+.running_style{
+	width:60%;
+	margin:0 auto;
+}
+
+/* 50音アイコン */
+
+ul.goju_nav {
+	display:table;
+	text-align:center;
+	list-style-type:none;
+}
+
+.goju_nav li {
+	display:table-cell;
+	*display:inline;
+	*zoom:1;
+}
+
+/* 透明度50% */
+.goju_nav li a:hover {
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+
+
+
+/* 用語説明 */
+
+.gyo_yogo .naiyou{
+width:80%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size: 100%;
+	padding-left:10%;
+}
+	
+
+.naiyou p {
+
+line-height: 3em;
+color:#000000;
+font-size:15px;
+margin:inherit;
+
+}
+
+
+
+/* 説明枠*/
+
+
+

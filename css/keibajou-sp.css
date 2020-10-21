@@ -1,0 +1,333 @@
+/*---------------------------�X�}�z�p---------------------------*/
+
+@media screen and (max-width:767px){
+
+
+	body{
+	margin: 0;
+	}
+
+
+	#wrapper{
+	margin:0;
+	}
+
+
+	.cf{
+  	overflow: hidden;
+	}
+
+
+
+	/* header�� */
+#header-inner{
+	width: 100%;
+	margin: 0
+	}
+
+	a{
+	  text-decoration: none;
+	}
+
+	#header-tittle{
+	width: 40%;
+	margin: 0.5% auto 1% auto;
+	}
+
+	#header-tittle img{
+	  width: 100%;
+	}
+
+
+	.navigate{
+		width: 100%;
+		margin: 8% 0 4% 0;
+	}
+
+	.navi{
+		list-style:none;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	nav ul li{
+	width: 30%;
+	float: left;
+	text-align: center;
+	}
+
+	nav ul a{
+		color:#919795;
+		font-size: 100%;
+	}
+
+
+
+/*main��*/
+
+.racecourse{
+	width: 100%;
+}
+
+#main-contents{
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+.keibajo{
+ 	border-bottom: solid #898B8A 1px;
+ 	color: #00BC71;
+ 	padding-bottom: 2%;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.horse{
+	width: 10%;
+	margin-bottom:-1%;
+}
+
+h2{
+ 	border-bottom: solid #898B8A 1px;
+ 	color: #00BC71;
+ 	padding-bottom: 2%;
+ 	margin-top: 5%;
+}
+
+h3{
+	color: #919795;
+}
+
+h4{
+	color: #919795;
+}
+
+p{
+	color: #919795;
+}
+
+#keibajou_main{
+	margin:0 auto;
+	overflow:hidden;
+}
+
+ul.g_nav{
+	text-align:center;
+	list-style:none;
+	padding: 0;
+}
+
+.g_nav a{
+	padding: 1%;
+	border: solid 1px #00BC71;
+	float: left;
+	width: 16%;
+	margin-left: 1%;
+	background-color: white;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out;
+	text-decoration: none;
+	color: #00BC71;
+}
+
+
+.g_nav a:hover{
+  background-color: #00BC71;
+	color: white;
+}
+
+/*���n���̐���*/
+.racecourse{
+width: 100%;
+}
+
+.sapporo_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.sapporo_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+.hakodate_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.hakodate_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.hukusima_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.hukusima_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.niigata_keibajou.setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.niigata_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.tokyo_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.tokyo_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.nakayama_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.nakayama_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.tyukyo_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.tyukyo_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.kyoto_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.kyoto_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.hansin_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.hansin_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+.kokura_keibajou .setumei{
+	width: 100%;
+	font-size: 100%;
+	line-height: 130%;
+	padding-left: 0;
+}
+
+iframe.kokura_keibajou{
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+
+.g_race h4{
+	margin:1em 0 !important;
+	border:none !important;
+	padding:0 !important;
+	font-size:104%;
+
+}
+
+.g_race p{
+	margin-top:10px;
+}
+
+.g01{
+background-color:#6201FE;
+color:white;
+padding:2px 10px;
+font-weight:bold;
+}
+
+.g02{
+background-color:#FFC400;
+color:white;
+padding:2px 10px;
+font-weight:bold;
+
+}
+
+.g03{
+background-color:#0052BD;
+color:white;
+padding:2px 10px;
+font-weight:bold;
+}
+
+/*footer*/
+footer{
+	margin-top: 13%;
+	text-align: center;
+	background: url(../images/field-1853614_1920.jpg) no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+}
+
+small{
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px #808080;
+}
+
+.page-top {
+    position: fixed;
+		bottom: 1%;
+    right: 2%;
+    width: 12%;
+}
+
+.page-top :hover {
+   opacity: 0.75; /* 25���قǓ����ɂ��� */
+}
+
+.page-top img{
+	width: 100%;
+}
+
+
+
+}/*�X�}�z�p���^�O*/

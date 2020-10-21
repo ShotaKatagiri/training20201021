@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+
+* {
+    font-family: "Source Sans Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 500;
+}
+
+
+
+#home {
+    margin: 0;
+}
+
+#wrapper {
+    margin: 0;
+}
+
+
+.cf {
+    overflow: hidden;
+}
+
+
+/* header▼ */
+
+#header-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+#header-tittle {
+    width: 40%;
+    float: left;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+}
+
+#header-tittle img {
+    float: left;
+    width: 50%;
+}
+
+
+.navigate {
+    float: right;
+    width: 60%;
+    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-right: -3%;
+}
+
+.navi {
+    float: right;
+    list-style: none;
+    width: 70%;
+    margin: 0;
+    margin-right: 100px;
+}
+
+nav ul li {
+    width: 25%;
+    float: left;
+}
+
+nav ul a {
+    color: #919795;
+    font-size: 150%;
+}
+
+
+
+
+.tittleh1 {
+    border-bottom: solid #898B8A 1px;
+    color: #00BC71;
+    padding-bottom: 2%;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.horse {
+    width: 5%;
+    margin-bottom: -1%;
+}
+
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr {
+    padding: 60px;
+    height: 50px;
+}
+
+
+
+
+/* {
+    border-top: 3px solid;
+    color:#919795;
+} */
+
+.mandatory {
+    color: rgb(233, 57, 32);
+}
+
+.submit {
+    text-align: center;
+    margin-bottom: 300px;
+    border: 0px solid #000;
+}
+
+.submitin1 {
+    padding: 15px 40px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color:  #919795;
+    outline: 0;
+    text-decoration: none;
+}
+
+.submitin2 {
+    text-align: center;
+    padding: 15px 80px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #00BC71;
+    outline: 0;
+    text-decoration: none;
+}
+
+input[type=text]{
+    height:30px;
+    }
+select{
+    height: 30px;
+}
+.error {
+    color: red;
+}

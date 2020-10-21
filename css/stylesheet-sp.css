@@ -1,0 +1,294 @@
+﻿/*---------------------------スマホ用---------------------------*/
+
+@media screen and (max-width:767px){
+	#home{
+		margin:0;
+	}
+
+
+	.cf{
+	  overflow: hidden;
+	}
+
+	#header-inner{
+	width: 100%;
+	margin: 0
+	}
+
+	a{
+	  text-decoration: none;
+	}
+
+	#header-tittle{
+	width: 40%;
+	margin: 0.5% auto 1% auto;
+	}
+
+	#header-tittle img{
+	  width: 100%;
+	}
+
+
+	.navigate{
+		width: 100%;
+		margin: 8% 0 4% 0;
+	}
+
+	.navi{
+		list-style:none;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	nav ul li{
+	width: 30%;
+	float: left;
+	text-align: center;
+	}
+
+	nav ul a{
+		color:#919795;
+		font-size: 100%;
+	}
+
+	/* メインイメージ　*/
+ .flexslider{
+ 	width: 100%;
+ 	margin: 0;
+ }
+
+ .flexslider img{
+   width: 100%;
+ }
+
+ .slides{
+ list-style: none;
+ padding: 0;
+ }
+
+
+
+
+
+
+ main{
+   width: 80%;
+   margin: 0 auto;
+ }
+
+	/* news */
+
+ .news h2{
+  	border-bottom: solid #898B8A 1px;
+  	color: #00BC71;
+  	padding-bottom: 2%;
+  	margin-top: 20%;
+ }
+
+ /*.newsbox{
+   border: solid 1px;
+   color: #919795;
+   padding: 2%;
+
+ }
+
+ .newsbox dt{
+ 	width:45%;
+ }*/
+ 
+ .newsbox{
+	border: solid 1px;
+    color: #919795;
+    padding: 2% 0 2% 2%;
+    /*width: 80%;*/
+    overflow-y: scroll;
+    height: 11rem;
+    margin: 0 auto;
+}
+
+.newsbox dl{
+	overflow: hidden;
+	width: 90%;
+    margin: 0 auto;
+}
+ 
+ .newsbox dt{
+	padding-right:2rem;
+	margin-top:0.5rem;
+	/*float:left;*/
+}
+
+ .newsbox dt:before{
+ 	content: '■ ';
+ 	color:#00BC71;
+ }
+
+ .newsbox dd{
+ 	/*margin-bottom: 4%;
+	width: 76%;*/
+	line-height: 145%;
+	margin: 0.2rem 0;
+}
+
+
+
+
+
+
+ /*video */
+
+ .video h2{
+  	border-bottom: solid #898B8A 1px;
+  	color: #00BC71;
+  	padding-bottom: 2%;
+  	margin-top: 8%;
+ }
+
+ .video img,
+ .site img{
+ 	width:10%;
+ 	margin-bottom: -1%;
+ }
+
+ .video p{
+ 	color: #919795;
+ 	line-height: 180%;
+ }
+ 
+.contentstop,
+.contentsbottom{
+	padding-bottom:1rem;
+	overflow: hidden;
+}
+
+ .video-contents{
+ 	width: 100%;
+ 	margin: 2%;
+ }
+
+ .video-content1{
+ 	width: 45%;
+ 	margin: 2%;
+	float: left;
+ }
+
+ .video-content2{
+ 	width: 45%;
+ 	margin: 2%;
+	float: right;
+ }
+
+ .video-content3{
+ 	width: 45%;
+ 	margin: 2%;
+	float: left;
+ }
+
+ .video-content4{
+ 	width: 45%;
+ 	margin: 2%;
+	float: right;
+ }
+
+ .video-content1 img,
+ .video-content2 img,
+ .video-content3 img,
+ .video-content4 img{
+ 	width: 100%;
+	display: block;
+ }
+
+ .video-content1 p,
+ .video-content2 p,
+ .video-content3 p,
+ .video-content4 p{
+	width: 100%;
+ 	display: block;
+ }
+
+
+
+
+
+ /*site */
+ .site{
+ 	width: 100%;
+ }
+
+ .site h2{
+  	border-bottom: solid #898B8A 1px;
+  	color: #00BC71;
+  	padding-bottom: 2%;
+  	margin-top: 8%;
+ }
+
+ .sites h3{
+ 	background-color: #00BC71;
+ 	color: white;
+ 	width: 100%;
+ 	padding: 2%;
+ }
+
+ .sites img{
+ 	width:100%;
+ }
+
+ .sites p{
+ 	width: 100%;
+ 	color: #919795;
+ 	line-height: 180%;
+ }
+
+ .site1{
+ 	width: 100%;
+ }
+
+ .site2{
+ 	width: 100%;
+ }
+
+ .site3{
+ 	width: 100%;
+ }
+
+ .site4{
+ 	width: 100%;
+ }
+
+.horseimg{
+	width: 10%;
+}
+
+
+/*footer*/
+footer{
+	margin-top: 13%;
+	text-align: center;
+	background: url(../images/field-1853614_1920.jpg) no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+}
+
+small{
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px #808080;
+}
+
+.page-top{
+    position: fixed;
+		bottom: 1%;
+    right: 2%;
+    width: 12%;
+}
+
+.page-top :hover{
+   opacity: 0.75;
+}
+
+.page-top img{
+	width: 100%;
+}
+
+
+}/*スマホ用閉じタグ*/

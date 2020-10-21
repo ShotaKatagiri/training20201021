@@ -1,0 +1,273 @@
+﻿
+*{
+	font-family:"Source Sans Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 500;
+}
+
+@media screen and (min-width:768px){
+
+#home{
+	margin: 0;
+}
+
+#wrapper{
+	margin:0;
+}
+
+
+.cf{
+  overflow: hidden;
+}
+
+
+ /* header▼ */
+
+ #header-inner{
+    width: 100%;
+    margin:0 auto;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    #header-tittle{
+    width: 40%;
+    float: left;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    }
+
+    #header-tittle img{
+      float: left;
+      width: 50%;
+    }
+
+
+    .navigate{
+        float: right;
+        width: 60%;
+        margin-bottom: 1%;
+        margin-top: 2%;
+        margin-right: -3%;
+    }
+
+    .navi{
+      float: right;
+      list-style:none;
+      width: 70%;
+      margin: 0;
+      margin-right: 100px;
+    }
+
+    nav ul li{
+    width: 25%;
+    float: left;
+    }
+
+    nav ul a{
+        color:#919795;
+        font-size: 150%;
+    }
+
+
+
+/*header▲*/
+
+
+/*main▼*/
+
+.runninghorse{
+	width: 100%;
+}
+
+#main-contents{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.tittleh1{
+ 	border-bottom: solid #898B8A 1px;
+ 	color: #00BC71;
+ 	padding-bottom: 2%;
+ 	margin-top: 10%;
+	text-align: center;
+}
+
+.horse{
+	width: 5%;
+	margin-bottom: -1%;
+}
+
+h2{
+ 	border-bottom: solid #898B8A 1px;
+ 	color: #00BC71;
+ 	padding-bottom: 2%;
+ 	margin-top: 5%;
+}
+
+h3 {
+font-size: 20px;
+color: #919795;
+line-height:100%;
+width:80%;
+margin: 5px;
+margin-top:0;
+margin-bottom:0;
+padding: 5px 20px;
+border-bottom: 4px double #ccc;
+
+}
+
+.hyou{
+	width: 100%;
+}
+
+.oikomi{
+	width: 50%;
+	float: left;
+	margin-top: 3%;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+
+.oikomi:hover{
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+
+.sashi{
+	width: 50%;
+	float: right;
+	margin-top: 3%;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+
+.sashi:hover{
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+
+.nige{
+	width: 50%;
+	float: left;
+	margin-bottom: 3%;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+
+.nige:hover{
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+
+.sennkou{
+	width: 50%;
+	float: right;
+	margin-bottom: 3%;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}
+
+.sennkou:hover{
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+/* 50音アイコン */
+
+ul.goju_nav{
+	padding-left: 0;
+	text-align: center;
+	list-style-type: none;
+	width: 95%;
+	margin: auto;
+}
+
+.goju_nav a{
+	border: solid 1px;
+	border-color: #00BC71;
+	padding: 2%;
+	float: left;
+	margin-right: 4%;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out;
+	font-size: 85%;
+ 	color: #00BC71;
+}
+
+.goju_nav a:hover {
+color: white;
+background-color: #00BC71;
+}
+
+
+.goju_nav p{
+	color: #919795;
+	margin-top: 0;
+}
+
+
+/* 用語説明 */
+
+.gyo_yogo .naiyou{
+width:80%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size: 100%;
+	padding-left:10%;
+}
+
+
+.naiyou p {
+
+line-height: 3em;
+color:#919795;
+font-size:15px;
+margin:inherit;
+
+}
+
+
+
+
+/*footer*/
+footer{
+	margin-top: 13%;
+	text-align: center;
+	background: url(../images/field-1853614_1920.jpg) no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+}
+
+small{
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px #808080;
+}
+
+.page-top {
+    position: fixed;
+		bottom: 1%;
+    right: 2%;
+    width: 6%;
+}
+
+.page-top :hover {
+   opacity: 0.75;
+}
+
+.page-top img{
+	width: 100%;
+}
+
+
+
+}

@@ -1,0 +1,247 @@
+h2{
+border-style:solid;
+border-right-style:hidden;
+border-left-style:hidden;
+font-size:50px;
+}
+
+#keibajou_main{
+	margin:0 auto;
+	overflow:hidden;
+}
+
+ul.g_nav{
+	display:table;
+	width:95%;
+	text-align:center;
+	list-style:none;
+}
+
+.g_nav li{
+	display:table-cell;
+	*display:inline;
+	*zoom:1;
+}
+
+.g_nav li a:hover{
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+}
+
+.sapporo_keibajou{
+
+}
+
+
+
+/*●競馬場インフォメーション*/
+.sapporo_keibajou .setumei{
+	width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size: 100%;
+	padding-left:10%;
+}
+
+iframe.sapporo_keibajou{
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+.hakodate_keibajou .setumei{
+	width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size: 100%;
+	padding-left:10%;
+}
+
+iframe.hakodate_keibajou{
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+	
+.hukusima_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left: 10%;
+}
+iframe.hukusima_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	}
+
+.niigata_keibajou.setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left:10%;
+}
+iframe.niigata_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+
+.tokyo_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+font-size: 100%;
+	padding-left:10%;
+}
+iframe.tokyo_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+
+.nakayama_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left:10%;
+	}
+iframe.nakayama_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;}
+
+.tyukyo_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+padding-left:10%;
+}
+iframe.tyukyo_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+
+.kyoto_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left:10%;
+}
+iframe.kyoto_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+
+.hansin_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left:10%;
+}
+iframe.hansin_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+.ogura_keibajou .setumei{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+	font-size:100%;
+	padding-left:10%;
+	}
+iframe.ogura_keibajou{
+width:50%;
+	display:inline-block;
+	vertical-align:bottom;
+	*display:inline;
+	*zoom:1;
+}
+
+.g_race{
+	padding-left:100px;
+}
+
+.g_race h4{
+	margin:1em 0 !important;
+	border:none !important;
+	padding:0 !important;
+	font-size:104%;
+	
+}
+
+.g_race p{
+	margin-top:10px;
+}
+
+.g01{               
+background-color:#CF2629;
+color:white;
+border-radius: 12px;
+margin: 0 auto;
+padding:2px 10px;
+font-weight:bold;
+}
+
+.g02{
+background-color:#1C8BC9;
+color:white;
+border-radius: 12px;
+padding:2px 10px;
+font-weight:bold;
+		
+}
+
+.g03{
+background-color:#00CC99;
+color:white;
+border-radius: 100px;
+padding:2px 10px;	
+font-weight:bold;
+}
+
