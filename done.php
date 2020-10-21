@@ -2,7 +2,9 @@
 
 // セッション開始
 session_start();
-
+$isValidated = false;
+$body = '';
+$mail = '';
 
 
 $token = isset($_POST["token"]) ? $_POST["token"] : "";
@@ -49,7 +51,7 @@ $header = "From: KEIBA-navi.info@gmail.com";
        mb_send_mail($mail, $subject, $message, $header);
        $isValidated = true;
    } else {
-    echo "不正なリクエストです";
+    echo "不正なリクエストです。";
 
    }
 

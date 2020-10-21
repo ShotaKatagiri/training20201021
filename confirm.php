@@ -69,20 +69,22 @@ if (!empty($_SERVER["REQUEST_METHOD"] == "POST")) {
     $mail = $_POST['mail'];
     $mail_check = $_POST['mail_check'];
     $body = $_POST['body'];
-} else {
-
-    $name = '';
-    $kana = '';
-    $zip_code  = '';
-    $address = '';
-    $address_etc = '';
-    $age = '';
-    $prefecture = '';
-    $tell = '';
-    $mail = '';
-    $mail_check = '';
-    $body =  '';
 }
+
+// else {
+
+//     $name = '';
+//     $kana = '';
+//     $zip_code  = '';
+//     $address = '';
+//     $address_etc = '';
+//     $age = '';
+//     $prefecture = '';
+//     $tell = '';
+//     $mail = '';
+//     $mail_check = '';
+//     $body =  '';
+// }
 
 
 if (!empty($_POST)) {
