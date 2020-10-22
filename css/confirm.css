@@ -105,6 +105,8 @@ tr {
 
 
 
+
+
 /* {
     border-top: 3px solid;
     color:#919795;
@@ -159,4 +161,14 @@ select {
     word-wrap: break-word;
     word-break: break-all;
     max-width: 700px;
+}
+
+table   {
+    border-collapse:collapse
+}
+td    {
+    border-bottom:1px solid #919795;
+}
+th    {
+    border-bottom:1px solid #919795;
 }
