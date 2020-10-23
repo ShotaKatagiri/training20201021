@@ -1,20 +1,16 @@
 <?php
-require_once 'util.inc.php';
 session_start();
-// $_SESSION = array();
-// session_destroy();
+require_once 'util.inc.php';
 
 
-function getToken()
-{
-    return hash('sha256',session_id());
-}
 
-$csrf_token = getToken();
+//変遷先でpostされてきた値と$_SESSIONの中に入れた値が合っていたら変遷できるため。
 
-$_SESSION['csrf_token'] = $csrf_token;
 
-// unset($_SESSION["token"]);
+//ランダムなトークンを発行 *util.inc.php*
+$_SESSION['csrf_token'] = random();
+
+
 
 
 $name = '';
@@ -39,37 +35,6 @@ $pref = array(
     41 => '佐賀県', 42 => '長崎県', 43 => '熊本県', 44 => '大分県', 45 => '宮崎県', 46 => '鹿児島県', 47 => '沖縄県'
 );
 
-
-
-
-if (!empty($_SERVER["REQUEST_METHOD"] == "POST")) {
-    // フォームから送信されたデータを各変数に格納
-    $name = $_POST['name'];
-    $kana = $_POST['kana'];
-    $zip_code  = $_POST['zip_code'];
-    $address = $_POST['address'];
-    $address_etc = $_POST['address_etc'];
-    $prefecture = $_POST['prefecture'];
-    $age = $_POST['age'];
-    $tell = $_POST['tell'];
-    $mail = $_POST['mail'];
-    $mail_check = $_POST['mail_check'];
-    $body = $_POST['body'];
-}
-// else {
-
-//     $name = '';
-//     $kana = '';
-//     $zip_code  = '';
-//     $address = '';
-//     $address_etc = '';
-//     $age = '';
-//     $prefecture = '';
-//     $tell = '';
-//     $mail = '';
-//     $mail_check = '';
-//     $body =  '';
-// }
 
 
 
@@ -141,28 +106,14 @@ if (!empty($_POST)) {
 <body>
     <div id="wrapper">
         <!--▼ヘッダー-->
-        <div id="header-inner">
-            <header class="cf header">
-                <div id="header-tittle" class="cf between">
-                    <a href="./index.html"><img src="images/logon'tittle.png" alt="House Racing Navigation logo"></a>
-                </div>
-                <nav class="navigate cf between">
-                    <ul class="navi cf">
-                        <li class="navli"><a href="./index.html">TOP</a></li>
-                        <li class="navli"><a href="./keibajou.html">競馬場</a></li>
-                        <li class="navli"><a href="./yougo.html">馬の脚質</a></li>
-                        <li class="navli"><a href="./contact.php">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+        <?php include("header.php")?>
         <!--▲ヘッダー-->
 
         <main>
 
             <h1 class="tittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
             <form action="confirm.php" method="post">
-            <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
+            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
                 <div class="table">
 
 <?php include("fromInput.php");?>
@@ -171,6 +122,8 @@ if (!empty($_POST)) {
                 <p class="submit"><a href="cofirm.php" class="sub"><input class="submitin" type="submit" value="確認へ"></a></p>
             </form>
         </main>
+<!--footer-->
+<?php include("footer.php")?>
 
 </body>
 

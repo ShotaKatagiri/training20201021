@@ -40,21 +40,7 @@ $(function() {
 <body id="home" class="col2">
 	<div id="wrapper">
 		<!--▼ヘッダー-->
-		<div id="header-inner">
-		  <header class="cf">
-			<div id="header-tittle" class="cf">
-			  <a href="./index.html"><img src="images/logon'tittle.png" alt="House Racing Navigation logo"></a>
-			</div>
-			<nav class="navigate cf">
-			  <ul class="navi cf">
-				<li><a href="./index.html">TOP</a></li>
-				<li><a href="./keibajou.html">競馬場</a></li>
-				<li><a href="./yougo.html">馬の脚質</a></li>
-                <li><a href="./contact.php">お問い合わせ</a></li>
-			  </ul>
-			</nav>
-		  </header>
-		</div>
+    <?php include("header.php")?>
 		<!--▲ヘッダー-->
 
 
@@ -152,11 +138,7 @@ $(function() {
 
 
 		<!--▼フッター-->
-		<footer>
-		<!--コピーライト-->
-		<small>Copyright &copy; 2015 競馬サイト評価【競馬情報】.com All Rights Reserved.</small>
-		<!--/コピーライト-->
-		</footer>
+		<?php include("footer.php")?>
 		<!--▲フッター-->
 
 

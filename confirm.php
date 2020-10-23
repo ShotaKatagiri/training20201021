@@ -1,6 +1,6 @@
 <?php
-require_once 'util.inc.php';
 session_start();
+require_once 'util.inc.php';
 $isValidated = false;
 
 
@@ -15,24 +15,12 @@ if (isset($_POST["csrf_token"])
 }
 
 
-// mailを確認
-// if (isset($_SESSION['mail'])) {
-//     header('Location: contact.php');
-//     exit();
-// } else {
-//     $_SESSION = array();
-//     session_destroy();
-// }
 
 
-function getToken()
-{
-    return hash('sha256',session_id());
-}
 
-$csrf_token = getToken();
 
-$_SESSION['csrf_token'] = $csrf_token;
+//ランダムなトークンを発行 *util.inc.php*
+$_SESSION['csrf_token'] = random();
 
 
 $pref = array(
@@ -55,36 +43,6 @@ $mail = '';
 $mail_check = '';
 $body =  '';
 
-
-if (!empty($_SERVER["REQUEST_METHOD"] == "POST")) {
-    // フォームから送信されたデータを各変数に格納
-    $name = $_POST['name'];
-    $kana = $_POST['kana'];
-    $zip_code  = $_POST['zip_code'];
-    $address = $_POST['address'];
-    $address_etc = $_POST['address_etc'];
-    $prefecture = $_POST['prefecture'];
-    $age = $_POST['age'];
-    $tell = $_POST['tell'];
-    $mail = $_POST['mail'];
-    $mail_check = $_POST['mail_check'];
-    $body = $_POST['body'];
-}
-
-// else {
-
-//     $name = '';
-//     $kana = '';
-//     $zip_code  = '';
-//     $address = '';
-//     $address_etc = '';
-//     $age = '';
-//     $prefecture = '';
-//     $tell = '';
-//     $mail = '';
-//     $mail_check = '';
-//     $body =  '';
-// }
 
 
 if (!empty($_POST)) {
@@ -138,34 +96,9 @@ if (!empty($_POST)) {
         $bodyError = 'お問い合わせ内容は20文字以上でご記入ください。';
         $isValidated = false;
     }
-    // if($isValidated == true){
-    //     //tokenに値が入っていた場合はcontact.phpに飛ばす。
-    //     if(isset($_SESSION["token"])){
-    //         header('Location: contact.php');
-    //         exit;
-    //     }
-    // }
+
 
 }
-
-//全てのエラーがNULLじゃなかった場合には。
-// if (!empty($nameError)|| !empty($kanaError)|| !empty($zip_codeError)|| !empty($addressError)||
-// !empty($ageError)|| !empty($tellError)|| !empty($mailError)|| !empty($mail_checkError)|| !empty($bodyError)) {
-//     exit;
-//     header('Location: confirm.php');
-// }else{
-//     header('Location: done.php');
-//     exit;
-// }
-
-// if (!isset($nameError, $kanaError, $zip_codeError, $addressError,
-// $ageError, $tellError, $mailError, $mail_checkError, $bodyError,)) {
-//     header('Location: done.php');
-//     exit;
-// }else{
-//     header('Location: https://extremesites.tokyo/training/keiba-navi-katagiri/confirm.php');
-//     exit;
-// }
 
 ?>
 
@@ -175,34 +108,19 @@ if (!empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/confirm.css">
+    <link rel="stylesheet" href="css/contact.css">
     <title>お問い合わせ</title>
 </head>
 
 <body>
     <div id="wrapper">
         <!--▼ヘッダー-->
-        <div id="header-inner">
-            <header class="cf header">
-                <div id="header-tittle" class="cf between">
-                    <a href="./index.html"><img src="images/logon'tittle.png" alt="House Racing Navigation logo"></a>
-                </div>
-                <nav class="navigate cf between">
-                    <ul class="navi cf">
-                        <li class="navli"><a href="./index.html">TOP</a></li>
-                        <li class="navli"><a href="./keibajou.html">競馬場</a></li>
-                        <li class="navli"><a href="./yougo.html">馬の脚質</a></li>
-                        <li class="navli"><a href="./contact.php">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+        <?php include("header.php")?>
         <!--▲ヘッダー-->
 
-
-        <h1 class="tittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
+        <h1 class="confirmTittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
         <form action="confirm.php" method="post">
-        <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
+        <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <!-- 表示に間違いがなければ表示されない。 -->
             <?php if ($isValidated == false) : ?>
 
@@ -210,20 +128,15 @@ if (!empty($_POST)) {
               <?php include("fromInput.php")?>
 
                 <p class="submit">
-                    <input class="submitin2" type="submit" value="確認" formaction="confirm.php">
+                    <input class="submitin" type="submit" value="確認" formaction="confirm.php">
                 </p>
 
         </form>
-        <?php /*  <?php if($isValidated == true):?>
-                            done.php
-                        <?php else:?>
-                            confirm.php
-                        <?php endif;?>">  */ ?>
 
         <!-- バリデーションがfalseであれば。 -->
-    <?php else: ?>
+        <?php else: ?>
         <form action="" method="post">
-        <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
+        <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
             <table class="verification">
                 <tr>
                     <th>お名前<span class="mandatory">（必須）</span></th>
@@ -279,7 +192,8 @@ if (!empty($_POST)) {
 
         </form>
     <?php endif; ?>
-
+<!--header-->
+<?php include("footer.php")?>
 </body>
 
 </html>

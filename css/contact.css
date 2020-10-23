@@ -25,58 +25,72 @@
 
 
 /* header▼ */
-
-#header-inner {
+#header-inner{
     width: 100%;
-    margin: 0 auto;
-}
+    margin:0 auto;
+    }
 
-a {
-    text-decoration: none;
-}
+    a{
+      text-decoration: none;
+    }
 
-#header-tittle {
+    #header-tittle{
     width: 40%;
     float: left;
     margin-bottom: 1%;
     margin-top: 0.5%;
     margin-left: 0.5%;
-}
+    }
 
-#header-tittle img {
-    float: left;
-    width: 50%;
-}
+    #header-tittle img{
+      float: left;
+      width: 50%;
+    }
 
 
-.navigate {
-    float: right;
-    width: 60%;
-    margin-bottom: 1%;
-    margin-top: 2%;
-    margin-right: -3%;
-}
+    .navigate{
+        float: right;
+        width: 60%;
+        margin-bottom: 1%;
+        margin-top: 2%;
+        margin-right: -3%;
+    }
 
-.navi {
-    float: right;
-    list-style: none;
-    width: 70%;
-    margin: 0;
-    margin-right: 100px;
-}
+    .navi{
+      float: right;
+      list-style:none;
+      width: 70%;
+      margin: 0;
+      margin-right: 100px;
+    }
 
-nav ul li {
+    nav ul li{
     width: 25%;
     float: left;
-}
+    }
 
-nav ul a {
-    color: #919795;
-    font-size: 150%;
-}
+    nav ul a{
+        color:#919795;
+        font-size: 150%;
+    }
 
 
 
+
+     /* メインイメージ*/
+    .flexslider{
+        width: 100%;
+        margin: 0;
+    }
+
+    .flexslider img{
+      width: 100%;
+    }
+
+    .slides{
+    list-style: none;
+    padding: 0;
+    }
 
 .tittleh1 {
     border-bottom: solid #898B8A 1px;
@@ -86,11 +100,23 @@ nav ul a {
     text-align: center;
 }
 
+
+.confirmTittleh1{
+    margin-bottom: 80px;
+    border-bottom: solid #898B8A 1px;
+    color: #00BC71;
+    padding-bottom: 2%;
+    margin-top: 10%;
+    text-align: center;
+}
+
+
 .horse {
     width: 5%;
     margin-bottom: -1%;
 }
 
+/*input*/
 table {
     text-align: center;
     margin-left: auto;
@@ -102,26 +128,54 @@ tr {
     height: 50px;
 }
 
+input[type=text]{
+    height:30px;
+    }
+select{
+    height: 30px;
+}
 
 
-
-/* {
-    border-top: 3px solid;
-    color:#919795;
-} */
-
+/*警告*/
 .mandatory {
     color: rgb(233, 57, 32);
 }
 
+.error {
+    color: rgb(233, 57, 32);
+}
+
+/*送信ボタン*/
 .submit {
     text-align: center;
     margin-bottom: 300px;
     border: 0px solid #000;
 }
-.error {
-    color: rgb(233, 57, 32);
+
+.submitin1 {
+    padding: 15px 40px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #919795;
+    outline: 0;
+    text-decoration: none;
 }
+
+.submitin2 {
+    text-align: center;
+    padding: 15px 80px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #00BC71;
+    outline: 0;
+    text-decoration: none;
+}
+
+
 
 .submitin {
     padding: 15px 100px;
@@ -134,9 +188,69 @@ tr {
     text-decoration: none;
 }
 
-input[type=text]{
-    height:30px;
-    }
-select{
-    height: 30px;
+/*確認画面の文字くぎり*/
+.bodyverifi {
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 700px;
+}
+
+
+
+/*確認画面の下線*/
+.verification   {
+    border-collapse:collapse
+}
+.verification td    {
+    border-bottom:1px solid #919795;
+}
+.verification th    {
+    border-bottom:1px solid #919795;
+}
+
+
+/*footer*/
+
+footer{
+	margin-top: 13%;
+	text-align: center;
+	background: url(../images/field-1853614_1920.jpg) no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+}
+
+small{
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px #808080;
+}
+
+.page-top {
+    position: fixed;
+		bottom: 1%;
+    right: 2%;
+    width: 6%;
+}
+
+.page-top :hover {
+   opacity: 0.75;
+}
+
+.page-top img{
+	width: 100%;
+}
+
+/*done画面*/
+.doneH1 {
+    margin-top: 210px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    border-bottom: solid #898B8A 1px;
+}
+.doneH2 {
+    text-align: center;
+}
+.doneP  {
+    text-align: center;
 }
