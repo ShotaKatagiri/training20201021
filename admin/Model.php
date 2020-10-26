@@ -4,7 +4,7 @@ require_once 'const.php';
 
 class Model
 {
-    protected $dbh;
+    public $dbh;
 
     public function connect()
     {
@@ -16,4 +16,5 @@ class Model
             throw new Exception($e);
         }
     }
+
 }

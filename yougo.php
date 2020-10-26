@@ -39,7 +39,7 @@ $(function() {
 
 
 <!--header-->
-<?php include("header.php")?>
+<?php require_once("header.php")?>
 <!--header-->
 
 
@@ -170,7 +170,7 @@ $(function() {
 
 
 <!--footer-->
-<?php include("footer.php")?>
+<?php require_once("footer.php")?>
 <!--▲フッター-->
   <p class="page-top"><a href="#wrap"><img src="images/pagetop.png" alt="pagetop"></a></p>
 

@@ -40,7 +40,7 @@ $(function() {
 <body id="home" class="col2">
 	<div id="wrapper">
 		<!--▼ヘッダー-->
-    <?php include("header.php")?>
+    <?php require_once("header.php")?>
 		<!--▲ヘッダー-->
 
 
@@ -138,7 +138,7 @@ $(function() {
 
 
 		<!--▼フッター-->
-		<?php include("footer.php")?>
+		<?php require_once("footer.php")?>
 		<!--▲フッター-->
 
 

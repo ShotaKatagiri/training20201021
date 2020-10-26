@@ -38,7 +38,7 @@ $(function() {
 <body>
 <div id="wrapper">
 <!--header-->
-<?php include("header.php")?>
+<?php require_once("header.php")?>
 <!--header-->
 
 
@@ -348,7 +348,7 @@ $(function() {
 <!--/main-->
 
 <!--↓フッター-->
-<?php include("footer.php")?>
+<?php require_once("footer.php")?>
 <!--▲フッター-->
 
 

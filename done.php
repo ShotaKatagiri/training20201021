@@ -3,8 +3,18 @@
 // セッション開始
 session_start();
 $isValidated = false;
-$body = '';
+
+
 $mail = '';
+$name = '';
+$kana = '';
+$zip_code = '';
+$address = '';
+$address_etc = '';
+$prefecture = '';
+$age = '';
+$tell = '';
+$body = '';
 
 
 $token = isset($_POST["token"]) ? $_POST["token"] : "";
@@ -27,14 +37,14 @@ if (!empty($_SERVER["REQUEST_METHOD"] == "POST")) {
     $tell = $_POST['tell'];
     $body = $_POST['body'];
 }
-if(isset($address_etc)){
-    $address_etc = "未記入";
+if (isset($address_etc)) {
+    $address_etc = '未記入';
 }
-if(isset($age)){
-    $age = "未記入";
+if (isset($age)) {
+    $age = '未記入';
 }
-if(isset($tell)){
-    $tell = "未記入";
+if (isset($tell)) {
+    $tell = '未記入';
 }
 
 //メールタイトル
@@ -42,7 +52,7 @@ $subject = "KEIBA navi にお問い合わせいただきありがとうござい
 
 //本文
 $message =
-"
+    "
 
 ※このメールはシステムからの自動返信です
 
@@ -50,15 +60,15 @@ $message =
 +・・・・・・・・・・・・・・・・・・+
 
 お名前:  " . $name .
-"\r\nフリガナ:  " . $kana .
-"\r\n都道府県:  " . $prefecture .
-"\r\n市区町村:  " . $zip_code .
-"\r\n番地:  " . $address .
-"\r\nマンション名等:  " . $address_etc .
-"\r\n年齢:  " . $age .
-"\r\n電話番号:  " . $tell .
-"\r\n\r\n     --お問い合わせ内容--\r\n". $body .
-"\r\n\r\n+・・・・・・・・・・・・・・・・・・+
+    "\r\nフリガナ:  " . $kana .
+    "\r\n都道府県:  " . $prefecture .
+    "\r\n市区町村:  " . $zip_code .
+    "\r\n番地:  " . $address .
+    "\r\nマンション名等:  " . $address_etc .
+    "\r\n年齢:  " . $age .
+    "\r\n電話番号:  " . $tell .
+    "\r\n\r\n     --お問い合わせ内容--\r\n" . $body .
+    "\r\n\r\n+・・・・・・・・・・・・・・・・・・+
 
 上記お問い合わせ内容について
 担当者より確認後、返答いたしますので
@@ -91,53 +101,56 @@ E-mail: KEIBA-navi.info@gmail.com
 $header = "From: KEIBA-navi.info@gmail.com";
 
 
-    // POSTされたトークンを持ち、セッションのトークンとマッチした場合
+// POSTされたトークンを持ち、セッションのトークンとマッチした場合
 
-    if (isset($_POST["csrf_token"])
-    && $_POST["csrf_token"] === $_SESSION['csrf_token']) {
-       mb_send_mail($mail, $subject, $message, $header);
-       $isValidated = true;
-   } else {
-    echo "不正なリクエストです。";
-
-   }
-
-
-
+if (
+    isset($_POST["csrf_token"])
+    && $_POST["csrf_token"] === $_SESSION['csrf_token']
+) {
+    mb_send_mail($mail, $subject, $message, $header);
+    $isValidated = true;
+} else {
+    header('Location: contact.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/contact.css">
-    <title>送信完了しました。</title>
+    <title>送信確認画面</title>
 </head>
 
 <body>
     <!--header-->
-    <?php include("header.php")?>
+    <?php require_once("header.php") ?>
     <?php if ($isValidated == true) : ?>
         <h1 class="doneH1"><img src="images/hourse.png" alt="horse" class="horse">送信完了しました。</h1>
-        <h2 class="doneH2">この度はお問い合わせいただきありがとうございます。</h2>
-        <p class="doneP">今後ともKEIBA navi をよろしくお願いい申し上げます。</p>
+            <h2 class="doneH2">この度はお問い合わせいただきありがとうございます。</h2>
+                <p class="doneP">今後ともKEIBA navi をよろしくお願いい申し上げます。</p>
 
-        <p class="doneP"><a href="index.php">トップへ画面へ戻る</a></p>
+                <p class="doneP"><a href="index.php">トップへ画面へ戻る</a></p>
 
         <!--送信失敗画面-->
     <?php else : ?>
+        <?php if ($valid) : ?>
+            <?= $valid ?>
+        <?php endif; ?>
         <h1 class="doneH1">送信失敗しました。</h1>
 
         <h2 class="doneH2">申し訳ありません、お問い合わせフォームの送信に失敗いたしました。</h2>
 
-        <p class="doneP">お手数ですが、お問い合わせフォームより再度ご記入のをお願いいたします。<br>今後ともKEIBA navi をよろしくお願いい申し上げます。</p>
+        <p class="doneP">お手数ですが、お問い合わせフォームより再度ご記入のをお願いいたします。<br>今後ともKEIBA navi をよろしくお願い申し上げます。</p>
 
         <p class="doneP"><a href="contact.php">お問い合わせ画面へ戻る</a></p>
 
+        <?php require_once("footer.php") ?>
     <?php endif; ?>
-    <?php include("footer.php")?>
 </body>
 
 </html>

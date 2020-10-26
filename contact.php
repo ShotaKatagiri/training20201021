@@ -99,31 +99,27 @@ if (!empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ</title>
     <link rel="stylesheet" href="css/contact.css">
+    <title>お問い合わせ</title>
 </head>
 
 <body>
     <div id="wrapper">
         <!--▼ヘッダー-->
-        <?php include("header.php")?>
+        <?php require_once("header.php") ?>
         <!--▲ヘッダー-->
-
         <main>
-
             <h1 class="tittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
             <form action="confirm.php" method="post">
-            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
-                <div class="table">
-
-<?php include("fromInput.php");?>
-
-                </div>
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <div class="table">
+                        <?php require_once("fromInput.php"); ?>
+                    </div>
                 <p class="submit"><a href="cofirm.php" class="sub"><input class="submitin" type="submit" value="確認へ"></a></p>
             </form>
         </main>
-<!--footer-->
-<?php include("footer.php")?>
+        <!--footer-->
+        <?php require_once("footer.php") ?>
 
 </body>
 

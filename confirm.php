@@ -4,14 +4,16 @@ require_once 'util.inc.php';
 $isValidated = false;
 
 
-if (isset($_POST["csrf_token"])
- && $_POST["csrf_token"] === $_SESSION['csrf_token']) {
-//postのなかのトークンが入っている&&postされてきた値とセッション変数のなかの値が合っていたら
+if (
+    isset($_POST["csrf_token"])
+    && $_POST["csrf_token"] === $_SESSION['csrf_token']
+) {
+    //postのなかのトークンが入っている&&postされてきた値とセッション変数のなかの値が合っていたら
 } else {
- //トークンの中に値が入っているのに、postされてきた値とセッション変数のなかの値が合っていない。
- //不正なリクエストです
- header('Location: contact.php');
- exit;
+    //トークンの中に値が入っているのに、postされてきた値とセッション変数のなかの値が合っていない。
+    //不正なリクエストです
+    header('Location: contact.php');
+    exit;
 }
 
 
@@ -96,8 +98,6 @@ if (!empty($_POST)) {
         $bodyError = 'お問い合わせ内容は20文字以上でご記入ください。';
         $isValidated = false;
     }
-
-
 }
 
 ?>
@@ -115,85 +115,78 @@ if (!empty($_POST)) {
 <body>
     <div id="wrapper">
         <!--▼ヘッダー-->
-        <?php include("header.php")?>
+        <?php require_once("header.php") ?>
         <!--▲ヘッダー-->
 
         <h1 class="confirmTittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
         <form action="confirm.php" method="post">
-        <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <!-- 表示に間違いがなければ表示されない。 -->
             <?php if ($isValidated == false) : ?>
-
                 <!-- contactを読み込み -->
-              <?php include("fromInput.php")?>
-
+                <?php require_once("fromInput.php") ?>
                 <p class="submit">
                     <input class="submitin" type="submit" value="確認" formaction="confirm.php">
                 </p>
-
         </form>
-
         <!-- バリデーションがfalseであれば。 -->
-        <?php else: ?>
+    <?php else : ?>
         <form action="" method="post">
-        <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <table class="verification">
                 <tr>
                     <th>お名前<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="name" value="<?=h($name)?>"><?= h($name) ?></td>
+                    <td><input type="hidden" name="name" value="<?= h($name) ?>"><?= h($name) ?></td>
                 </tr>
                 <tr>
                     <th>フリガナ<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="kana" value="<?=h($kana)?>"><?= h($kana) ?></td>
+                    <td><input type="hidden" name="kana" value="<?= h($kana) ?>"><?= h($kana) ?></td>
                 </tr>
                 <tr>
                     <th>都道府県 （セレクトボックス）</th>
-                    <td><input type="hidden" name="prefecture" value="<?=h($prefecture)?>"><?= h($prefecture) ?></td>
+                    <td><input type="hidden" name="prefecture" value="<?= h($prefecture) ?>"><?= h($prefecture) ?></td>
                 </tr>
                 <tr>
                     <th>市区町村 <span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="zip_code" value="<?=h($zip_code)?>"><?= h($zip_code) ?></td>
+                    <td><input type="hidden" name="zip_code" value="<?= h($zip_code) ?>"><?= h($zip_code) ?></td>
                 </tr>
                 <tr>
                     <th>番地<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="address" value="<?=h($address)?>"><?= h($address) ?></td>
+                    <td><input type="hidden" name="address" value="<?= h($address) ?>"><?= h($address) ?></td>
                 </tr>
                 <tr>
                     <th>マンション名等</th>
-                    <td><input type="hidden" name="address_etc" value="<?=h($address_etc)?>"><?= h($address_etc) ?></td>
+                    <td><input type="hidden" name="address_etc" value="<?= h($address_etc) ?>"><?= h($address_etc) ?></td>
                 </tr>
                 <tr>
                     <th>年齢</th>
-                    <td><input type="hidden" name="age" value="<?=h($age)?>"><?= h($age) ?></td>
+                    <td><input type="hidden" name="age" value="<?= h($age) ?>"><?= h($age) ?></td>
                 </tr>
                 <tr>
                     <th>電話番号</th>
-                    <td><input type="hidden" name="tell" value="<?=h($tell)?>"><?= h($tell) ?></td>
+                    <td><input type="hidden" name="tell" value="<?= h($tell) ?>"><?= h($tell) ?></td>
                 </tr>
                 <tr>
                     <th>メールアドレス<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="mail" value="<?=h($mail)?>"><?= h($mail) ?></td>
+                    <td><input type="hidden" name="mail" value="<?= h($mail) ?>"><?= h($mail) ?></td>
                 </tr>
                 <tr>
                     <th>メールアドレス確認<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="mail_check" value="<?=h($mail_check)?>"><?= h($mail_check) ?></td>
+                    <td><input type="hidden" name="mail_check" value="<?= h($mail_check) ?>"><?= h($mail_check) ?></td>
                 </tr>
                 <tr>
                     <th>お問い合わせ内容 <span class="mandatory">（必須）</span></th>
-                    <td class="bodyverifi"><input type="hidden" name="body" value="<?=h($body)?>"><?= h($body) ?></td>
+                    <td class="bodyverifi"><input type="hidden" name="body" value="<?= h($body) ?>"><?= h($body) ?></td>
                 </tr>
             </table>
             <p class="submit">
                 <input class="submitin1" type="submit" value="←  修正" formaction="contact.php">
-
                 <input class="submitin2" type="submit" name="done" value="送信" formaction="done.php">
             </p>
-
-
         </form>
     <?php endif; ?>
-<!--header-->
-<?php include("footer.php")?>
+    <!--header-->
+    <?php require_once("footer.php") ?>
 </body>
 
 </html>
