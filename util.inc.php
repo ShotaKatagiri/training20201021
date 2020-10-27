@@ -6,9 +6,9 @@ function h($string)
 }
 
 //ランダムなハッシュの作成
-function random()
+function randomToken()
 {
-    return substr(base_convert(hash('sha256', uniqid()), 16, 36), 0, 8);
+    return (uniqid(mt_rand(), true));
 }
 
 

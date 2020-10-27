@@ -1,11 +1,7 @@
 <?php
 session_start();
-require_once 'Model.php';
-require_once '../util.inc.php';
-
+//sessionに空の配列を挿入
 $_SESSION = array();
-
 header('Location: login.php');
-
 exit;
 ?>

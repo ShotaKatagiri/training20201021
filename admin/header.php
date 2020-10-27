@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contact.css">
-    <title>お問い合わせ</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>管理者ログイン</title>
 </head>
 
 <body>
     <div id="wrapper">
-<div id="header-inner">
+        <div id="header-inner">
 		  <header class="cf">
 			<div id="header-tittle" class="cf">
 			  <a href="./index.php"><img src="images/logon'tittle.png" alt="House Racing Navigation logo"></a>
@@ -26,3 +26,4 @@
 			</nav>
 		  </header>
 		</div>
+        <main>
