@@ -1,45 +1,42 @@
 <?php
 session_start();
-if (
-    !isset($_POST['csrf_token'])
-    && $_POST['csrf_token'] !== $_SESSION['csrf_token']
-) {
+if (!isset($_POST['csrf_token']) && $_POST['csrf_token'] !== $_SESSION['csrf_token']){
        header('Location: contact.php');
     exit;
 }
 require_once ('util.inc.php');
-require_once ('data.php');
+require_once ('register.php');
 
- {
     if ($_POST['name'] === '') {
-        $error_List['name'] = 'お名前を入力してください。';
+        $errorList['name'] = 'お名前を入力してください。';
     }
     if ($_POST['kana'] === '') {
-        $error_List['kana'] = 'フリガナを入力してください。';
+        $errorList['kana'] = 'フリガナを入力してください。';
     } elseif (!preg_match('/^[ァ-ヶー ]+$/u', $_POST['kana'])) {
-        $error_List['kana'] = 'フリガナの形式が正しくありません。';
+        $errorList['kana'] = 'フリガナの形式が正しくありません。';
     }
     if ($_POST['municipality'] === '') {
-        $error_List['municipality'] = '市区町村名を入力してください。';
+        $errorList['municipality'] = '市区町村名を入力してください。';
     }
     if ($_POST['address'] === '') {
-        $error_List['address'] = '番地を入力してください。';
+        $errorList['address'] = '番地を入力してください。';
     }
     if ($_POST['mail'] === '') {
-        $error_List['mail'] = 'メールアドレスを入力してください。';
+        $errorList['mail'] = 'メールアドレスを入力してください。';
     }
-    if ($_POST['mail_Check'] === '') {
-        $error_List['mail_Check'] = 'メールアドレス確認を入力してください。';
-    } elseif ($_POST['mail'] !== $_POST['mail_Check']) {
-        $error_List['mail_Check'] = 'メールアドレスが一致しておりません。';
+    if ($_POST['mailCheck'] === '') {
+        $errorList['mailCheck'] = 'メールアドレス確認を入力してください。';
+    } elseif ($_POST['mail'] !== $_POST['mailCheck']) {
+        $errorList['mailCheck'] = 'メールアドレスが一致しておりません。';
     }
     if ($_POST['inquiry'] === '') {
-        $error_List['inquiry'] = 'お問い合わせ内容を入力してください。';
+        $errorList['inquiry'] = 'お問い合わせ内容を入力してください。';
     } elseif (preg_match('/¥A[ r n[:^cntrl:]]{20,}+¥z/u', $_POST['inquiry'])) {
-        $error_List['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
+        $errorList['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
     }
-}
-if(isset($error_List)){
+
+if(isset($errorList)){
+    $_SESSION = array();
     session_destroy();
     require_once ('contact.php');
     exit;
@@ -75,7 +72,7 @@ if(isset($error_List)){
                 </tr>
                 <tr>
                     <th>マンション名等</th>
-                    <td><input type="hidden" name="address_etc" value="<?=h($_POST['address_etc'])?>"><?=h($_POST['address_etc'])?></td>
+                    <td><input type="hidden" name="apartment_etc" value="<?=h($_POST['apartment_etc'])?>"><?=h($_POST['apartment_etc'])?></td>
                 </tr>
                 <tr>
                     <th>年齢</th>
@@ -83,7 +80,7 @@ if(isset($error_List)){
                 </tr>
                 <tr>
                     <th>電話番号</th>
-                    <td><input type="hidden" name="tell" value="<?=h($_POST['tell'])?>"><?=h($_POST['tell'])?></td>
+                    <td><input type="hidden" name="phoneNumber" value="<?=h($_POST['phoneNumber'])?>"><?=h($_POST['phoneNumber'])?></td>
                 </tr>
                 <tr>
                     <th>メールアドレス<span class="mandatory">（必須）</span></th>
@@ -91,7 +88,7 @@ if(isset($error_List)){
                 </tr>
                 <tr>
                     <th>メールアドレス確認<span class="mandatory">（必須）</span></th>
-                    <td><input type="hidden" name="mail_Check" value="<?=h($_POST['mail_Check'])?>"><?=h($_POST['mail_Check'])?></td>
+                    <td><input type="hidden" name="mailCheck" value="<?=h($_POST['mailCheck'])?>"><?=h($_POST['mailCheck'])?></td>
                 </tr>
                 <tr>
                     <th>お問い合わせ内容 <span class="mandatory">（必須）</span></th>
@@ -99,8 +96,8 @@ if(isset($error_List)){
                 </tr>
             </table>
             <p class="submit">
-                <input class="submitin1" type="submit" value="←  修正" formaction="contact.php">
-                <input class="submitin2" type="submit" name="done" value="送信">
+                <input class="submitInput1" type="submit" value="←  修正" formaction="contact.php">
+                <input class="submitInput2" type="submit" name="done" value="送信">
             </p>
         </form>
     </main>

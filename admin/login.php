@@ -4,10 +4,10 @@ $_SESSION = array();
 require_once 'Model.php';
 require_once '../util.inc.php';
 
-if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
-    if(empty($_POST['id']) OR empty($_POST['pass'])){
+if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    if (empty($_POST['id']) or empty($_POST['pass'])) {
         $error['notValues'] = 'idかパスワードが入力されておりません';
-    }else{
+    } else {
         try {
             $model = new Model();
             $model->connect();
@@ -27,7 +27,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
                 header('Location: top.php');
                 exit;
             } else {
-                   $error['wrong'] = 'IDかパスワードが間違っています。';
+                $error['wrong'] = 'IDかパスワードが間違っています。';
             }
             //現在使っているセッションを終了させることなくセッションIDだけを新しい値に置き換えてくれます。
             // session_regenerate_id(true);
@@ -38,20 +38,39 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
     }
 }
 ?>
-    <!--header-->
-  <?php require_once('header.php') ?>
-    <h1 class="title">管理者画面ログイン</h1>
-        <?php if(isset($error['notValues'])):?>
-            <?=$error['notValues']?>
-        <?php endif;?>
-        <?php if(isset($error['wrong'])):?>
-            <?=$error['wrong']?>
-        <?php endif;?>
-    <form action="" method="post">
-        <!-- ↓session変数の中のランダムなトークンを送信 -->
-        <p>ログインID<input type="text" name="id" autofocus></p>
-        <p>パスワード<input type="password" name="pass"></p>
-        <p><input type="submit" value="認証" ></p>
-    </form>
-    <!--footer-->
-  <?php require_once('footer.php') ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>管理者ログイン</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header-inner">
+            <header class="cf">
+                <div id="header-tittle" class="cf">
+                    <a href="./index.php"><img src="images/logon'tittle.png" alt="House Racing Navigation logo"></a>
+                </div>
+            </header>
+        </div>
+        <main class="login-main">
+            <h1 class="login-title">新人研修進捗管理システム 管理者画面ログイン</h1>
+            <?php if (isset($error['notValues'])) : ?>
+                <?= $error['notValues'] ?>
+            <?php endif; ?>
+            <?php if (isset($error['wrong'])) : ?>
+                <?= $error['wrong'] ?>
+            <?php endif; ?>
+            <form action="" method="post">
+                <!-- ↓session変数の中のランダムなトークンを送信 -->
+                <p>ログインID<input type="text" name="id" autofocus></p>
+                <p>パスワード<input type="password" name="pass"></p>
+                <p><input type="submit" value="認証"></p>
+            </form>
+            <!--footer-->
+<?php require_once('footer.php') ?>
