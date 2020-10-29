@@ -7,16 +7,10 @@ if (!isset($_POST['csrf_token'])&& $_POST['csrf_token'] !== $_SESSION['csrf_toke
 }
 //$_SESSION中身を空にする
 isset($_SESSION['csrf_token']) ? $_SESSION['csrf_token'] : '';
-
-if (empty($_POST['apartment_etc'])) {
-    $_POST['apartment_etc'] = '未記入';
-}
-if (empty($_POST['age'])) {
-    $_POST['age'] = '未記入';
-}
-if (empty($_POST['phoneNumber'])) {
-    $_POST['phoneNumber'] = '未記入';
-}
+//必須項目外の未記入の場合の処理
+$_POST['apartment_etc'] = !empty($_POST['apartment_etc']) ? $_POST['apartment_etc'] : '未記入';
+$_POST['age'] = !empty($_POST['age']) ? $_POST['age'] : '未記入';
+$_POST['phoneNumber'] = !empty($_POST['phoneNumber']) ? $_POST['phoneNumber'] : '未記入';
 //メールタイトル
 $subject = 'KEIBA navi にお問い合わせいただきありがとうございます。';
 //本文

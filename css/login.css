@@ -11,24 +11,41 @@
     margin: 0;
 }
 
-#top-wrapper {
-    margin: 0;
-}
+
+
+
 /* ▽login.php▽ */
-#header-inner{
-    margin:0 auto;
-    }
+
+.login-body {
+    background-color: rgb(178,226,171);
+}
+#login-wrapper{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 250px;
+
+}
 .login-title{
-    margin-top: 50px;
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 50px;
 }
 
 /* ▽top.php▽ */
 /* header▼ */
+.top-body {
+    background-color: rgb(178,226,171);
+}
+    #top-wrapper {
+        margin: 0;
+        background-color: #fff;
+        width: 75%;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        margin-bottom: 50px;
+    }
     #top-header-inner{
-        margin:0 auto;
-        margin-bottom: 150px;
+        width: 100%;
     }
     .top-header-wrapper{
         display: flex;
@@ -46,10 +63,12 @@
         list-style:none;
         margin: 0;
         display: flex;
+        margin-bottom: 100px;
     }
     .top-navi-li{
         justify-content: start;
         width: 14%;
+        font-size: 13px;
     }
     .top-navi-a{
         text-align: center;
@@ -60,11 +79,13 @@
         padding-top: 10px;
         padding-bottom: 10px;
         border-bottom: 3px solid rgba(0, 0, 0, 0);
+        font-weight: bold;
     }
     .top-navi-li :hover {
         border-bottom: 3px solid #BB2388;
     }
 /*main*/
+
     main{
         text-align: center;
         margin-bottom: 300px;
@@ -74,35 +95,6 @@
         font-size: 20px;
         text-align: center;
     }
-    .top-h2{
-        margin-bottom: 300px;
-    }
-/*↓footer*/
-    footer{
-        margin-top: 13%;
-        text-align: center;
-        background: url(../images/field-1853614_1920.jpg) no-repeat;
-        background-size: cover;
-        padding: 3rem 0;
-    }
-
-    small{
-        color: white;
-        font-weight: bold;
-        text-shadow: -1px -1px #808080;
-    }
-
-    .page-top {
-        position: fixed;
-        bottom: 1%;
-        right: 2%;
-        width: 6%;
-    }
-
-    .page-top :hover {
-       opacity: 0.75;
-    }
-
-    .page-top img{
-        width: 100%;
+    .login-input{
+        width: 200px;
     }

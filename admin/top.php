@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-if (empty($_SESSION)) {
+if ($_SESSION == false){
     header('Location: login.php');
     exit;
 }
@@ -18,7 +17,7 @@ require_once '../util.inc.php';
     <title>管理者ログイン</title>
 </head>
 
-<body>
+  <body class="top-body">
     <div id="top-wrapper">
       <main>
         <div id="top-header-inner">
@@ -40,7 +39,7 @@ require_once '../util.inc.php';
             </header>
         </div>
         <h2 class="top-h2">アラートはありません。</h2>
-
-
-    <!--footer-->
-    <?php require_once('footer.php') ?>
+     </main>
+    </div>
+  </body>
+</html>

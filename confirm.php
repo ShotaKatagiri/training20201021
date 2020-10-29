@@ -1,40 +1,40 @@
 <?php
 session_start();
-if (!isset($_POST['csrf_token']) && $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+if (!isset($_POST['csrf_token']) && $_POST['csrf_token'] != $_SESSION['csrf_token']){
        header('Location: contact.php');
     exit;
 }
 require_once ('util.inc.php');
 require_once ('register.php');
-
-    if ($_POST['name'] === '') {
+//バリデーションチェック
+    if ($_POST['name'] == '') {
         $errorList['name'] = 'お名前を入力してください。';
     }
-    if ($_POST['kana'] === '') {
+    if ($_POST['kana'] == '') {
         $errorList['kana'] = 'フリガナを入力してください。';
     } elseif (!preg_match('/^[ァ-ヶー ]+$/u', $_POST['kana'])) {
         $errorList['kana'] = 'フリガナの形式が正しくありません。';
     }
-    if ($_POST['municipality'] === '') {
+    if ($_POST['municipality'] == '') {
         $errorList['municipality'] = '市区町村名を入力してください。';
     }
-    if ($_POST['address'] === '') {
+    if ($_POST['address'] == '') {
         $errorList['address'] = '番地を入力してください。';
     }
-    if ($_POST['mail'] === '') {
+    if ($_POST['mail'] == '') {
         $errorList['mail'] = 'メールアドレスを入力してください。';
     }
-    if ($_POST['mailCheck'] === '') {
+    if ($_POST['mailCheck'] == '') {
         $errorList['mailCheck'] = 'メールアドレス確認を入力してください。';
     } elseif ($_POST['mail'] !== $_POST['mailCheck']) {
         $errorList['mailCheck'] = 'メールアドレスが一致しておりません。';
     }
-    if ($_POST['inquiry'] === '') {
+    if ($_POST['inquiry'] == '') {
         $errorList['inquiry'] = 'お問い合わせ内容を入力してください。';
     } elseif (preg_match('/¥A[ r n[:^cntrl:]]{20,}+¥z/u', $_POST['inquiry'])) {
         $errorList['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
     }
-
+//errorが出た場合の処理
 if(isset($errorList)){
     $_SESSION = array();
     session_destroy();
