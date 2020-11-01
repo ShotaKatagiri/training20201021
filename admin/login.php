@@ -1,13 +1,12 @@
 <?php
 session_start();
-$_SESSION = array();
-session_destroy();
+unset($_SESSION);
 
 session_start();
-require_once 'Model.php';
-require_once '../util.inc.php';
-if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
-    if (empty($_POST['id']) or empty($_POST['pass'])) {
+require_once ('Model.php');
+require_once ('../util.inc.php');
+if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
+    if (empty($_POST['id']) or empty($_POST['pass'])){
         $error['notValues'] = 'idかパスワードが入力されておりません';
     } else {
         try {
@@ -26,45 +25,40 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
             } else {
                 $error['wrong'] = 'IDかパスワードが間違っています。';
             }
-            //現在使っているセッションを終了させることなくセッションIDだけを新しい値に置き換えてくれます。
-        } catch (PDOException $e) {
+        } catch(PDOException $e){
             header('Content-Type: text/plain; charset=UTF-8', true, 500);
             exit($e->getMessage());
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <title>管理者ログイン</title>
-</head>
-
-  <body class="login-body">
-    <div id="login-wrapper">
-        <main class="login-main">
-            <h1 class="login-title">新人研修進捗管理システム 管理者画面ログイン</h1>
-              <div class="login-input-wrapper">
-                <?php if (isset($error['notValues'])) : ?>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/login.css">
+        <title>管理者ログイン</title>
+    </head>
+    <body class="login-body">
+        <div id="login-wrapper">
+            <main class="login-main">
+                <h1 class="login-title">新人研修進捗管理システム 管理者画面ログイン</h1>
+                <div class="login-input-wrapper">
+                    <?php if (isset($error['notValues'])):?>
                     <?=$error['notValues']?>
-                <?php endif; ?>
-                <?php if (isset($error['wrong'])) : ?>
+                    <?php endif;?>
+                    <?php if (isset($error['wrong'])):?>
                     <?=$error['wrong']?>
-                <?php endif; ?>
-                <form action="" method="post">
-                    <!-- ↓session変数の中のランダムなトークンを送信 -->
-                    <p>ログインID<input class="login-input" type="text" name="id" autofocus></p>
-                    <p>パスワード<input class="login-input" type="password" name="pass"></p>
-                    <p><input type="submit" value="認証"></p>
-                </form>
-              </div>
-        </main>
-    </div>
-  </body>
+                    <?php endif;?>
+                    <form action="" method="post">
+                        <p>ログインID<input class="login-input" type="text" name="id" autofocus></p>
+                        <p>パスワード<input class="login-input" type="password" name="pass"></p>
+                        <p><input type="submit" value="認証"></p>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </body>
 </html>

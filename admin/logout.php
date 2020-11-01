@@ -1,7 +1,7 @@
 <?php
 session_start();
-//sessionに空の配列を挿入
-$_SESSION = array();
+//sessionを消す。
+unset($_SESSION);
 header('Location: login.php');
 exit;
 ?>

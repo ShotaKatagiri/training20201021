@@ -90,6 +90,9 @@
         text-align: center;
         margin-bottom: 300px;
     }
+    .top-h2{
+        margin-bottom: 50px;
+    }
 
     h2{
         font-size: 20px;
@@ -97,4 +100,15 @@
     }
     .login-input{
         width: 200px;
+    }
+    .top-table{
+        margin: 0 auto;
+        border-collapse: collapse;
+        border: 1px solid #000;
+        width: 650px;
+    }
+    .copyright{
+        position:fixed;
+        right:190px;
+        bottom:150px;
     }

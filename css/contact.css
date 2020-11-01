@@ -198,7 +198,7 @@ select{
 
 /*確認画面の下線*/
 .verification   {
-    border-collapse:collapse
+    border-collapse: collapse;
 }
 .verification td    {
     border-bottom:1px solid #919795;
