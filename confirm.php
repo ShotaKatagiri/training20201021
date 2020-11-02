@@ -4,46 +4,46 @@ if (!isset($_POST['csrf_token']) && $_POST['csrf_token'] != $_SESSION['csrf_toke
     header('Location: contact.php');
     exit;
 }
-require_once ('util.inc.php');
-require_once ('const.php');
+require_once('util.inc.php');
+require_once('const.php');
 //バリデーションチェック
 if ($_POST['name'] == '') {
-    $errorList['name'] = 'お名前を入力してください。';
+    $error_list['name'] = 'お名前を入力してください。';
 }
 if ($_POST['kana'] == '') {
-    $errorList['kana'] = 'フリガナを入力してください。';
+    $error_list['kana'] = 'フリガナを入力してください。';
 } elseif (!preg_match('/^[ァ-ヶー ]+$/u', $_POST['kana'])){
-    $errorList['kana'] = 'フリガナの形式が正しくありません。';
+    $error_list['kana'] = 'フリガナの形式が正しくありません。';
 }
 if ($_POST['municipality'] == '') {
-    $errorList['municipality'] = '市区町村名を入力してください。';
+    $error_list['municipality'] = '市区町村名を入力してください。';
 }
 if ($_POST['address'] == '') {
-    $errorList['address'] = '番地を入力してください。';
+    $error_list['address'] = '番地を入力してください。';
 }
 if ($_POST['mail'] == '') {
-    $errorList['mail'] = 'メールアドレスを入力してください。';
+    $error_list['mail'] = 'メールアドレスを入力してください。';
 }
 if ($_POST['mail_check'] == '') {
-    $errorList['mail_check'] = 'メールアドレス確認を入力してください。';
+    $error_list['mail_check'] = 'メールアドレス確認を入力してください。';
 } elseif ($_POST['mail'] !== $_POST['mail_check']){
-    $errorList['mail_check'] = 'メールアドレスが一致しておりません。';
+    $error_list['mail_check'] = 'メールアドレスが一致しておりません。';
 }
 if ($_POST['inquiry'] == '') {
-    $errorList['inquiry'] = 'お問い合わせ内容を入力してください。';
+    $error_list['inquiry'] = 'お問い合わせ内容を入力してください。';
 } elseif (preg_match('/¥A[ r n[:^cntrl:]]{20,}+¥z/u', $_POST['inquiry'])) {
-    $errorList['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
+    $error_list['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
 }
 //errorが出た場合の処理
-if (isset($errorList)) {
-    require_once ('contact.php');
+if (isset($error_list)) {
+    require_once('contact.php');
     exit;
 }
 ?>
 <!--header-->
-<?php require_once ('header.php');?>
+<?php require_once('header.php');?>
 <main>
-    <h1 class="tittleh1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
+    <h1 class="title-h1"><img src="images/hourse.png" alt="horse" class="horse">お問い合わせ</h1>
     <table class="verification">
         <tr>
             <th>お名前</th>
@@ -83,7 +83,7 @@ if (isset($errorList)) {
         </tr>
         <tr>
             <th>お問い合わせ内容 </th>
-            <td class="inquiryverifi"><?=h($_POST['inquiry'])?></td>
+            <td class="confirm-inquiry"><?=h($_POST['inquiry'])?></td>
         </tr>
     </table>
     <form action="done.php" method="post">
@@ -100,10 +100,10 @@ if (isset($errorList)) {
         <input type="hidden" name="mail_check" value="<?=h($_POST['mail_check'])?>">
         <input type="hidden" name="inquiry" value="<?=h($_POST['inquiry'])?>">
         <p class="submit">
-            <input class="submitInput1" type="submit" value="←  修正" formaction="contact.php">
-            <input class="submitInput2" type="submit" name="done" value="送信">
+            <input class="submit-input1" type="submit" value="←  修正" formaction="contact.php">
+            <input class="submit-input2" type="submit" name="done" value="送信">
         </p>
     </form>
 </main>
 <!--footer-->
-<?php require_once ('footer.php');?>
+<?php require_once('footer.php');?>

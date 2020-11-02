@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once ('Model.php');
-require_once ('../util.inc.php');
+require_once('Model.php');
+require_once('../util.inc.php');
 
 try {
     $model = new Model();
@@ -17,9 +17,6 @@ try {
         header('Location: news_delete_done.php');
         exit;
     }
-
-
-
 } catch(PDOException $e){
     header('Content-Type: text/plain; charset=UTF-8', true, 500);
     exit($e->getMessage());

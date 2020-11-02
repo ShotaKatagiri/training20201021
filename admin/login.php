@@ -1,12 +1,10 @@
 <?php
 session_start();
-unset($_SESSION);
-
-session_start();
-require_once ('Model.php');
-require_once ('../util.inc.php');
-if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
-    if (empty($_POST['id']) or empty($_POST['pass'])){
+unset($_SESSION['user_name']);
+require_once('Model.php');
+require_once('../util.inc.php');
+if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    if (empty($_POST['id']) or empty($_POST['pass'])) {
         $error['notValues'] = 'idかパスワードが入力されておりません';
     } else {
         try {
@@ -17,7 +15,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
             $stmt->execute([$_POST['id']]);
             $result = $stmt->fetch();
             //$resultがあり、postされたidとDBのIDが同じで、$passとpassを元に生成されたハッシュ値が一緒ならばtrue
-            if ($result &&$_POST['id'] === $result['login_id'] &&password_verify($_POST['pass'], $result['login_pass'])){
+            if ($result &&$_POST['id'] === $result['login_id'] &&password_verify($_POST['pass'], $result['login_pass'])) {
                 //↓logout.phpにログインレコードのユーザーの名前を代入する。
                 $_SESSION['user_name'] = $result['name'];
                 header('Location: top.php');
@@ -25,7 +23,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
             } else {
                 $error['wrong'] = 'IDかパスワードが間違っています。';
             }
-        } catch(PDOException $e){
+        } catch(PDOException $e) {
             header('Content-Type: text/plain; charset=UTF-8', true, 500);
             exit($e->getMessage());
         }
@@ -46,10 +44,10 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
             <main class="login-main">
                 <h1 class="login-title">新人研修進捗管理システム 管理者画面ログイン</h1>
                 <div class="login-input-wrapper">
-                    <?php if (isset($error['notValues'])):?>
+                    <?php if (isset($error['notValues'])) :?>
                     <?=$error['notValues']?>
                     <?php endif;?>
-                    <?php if (isset($error['wrong'])):?>
+                    <?php if (isset($error['wrong'])) :?>
                     <?=$error['wrong']?>
                     <?php endif;?>
                     <form action="" method="post">

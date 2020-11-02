@@ -31,7 +31,7 @@
     margin-bottom: 50px;
 }
 
-/* ▽top.php▽ */
+/*-----▽top.php▽-----*/
 /* header▼ */
 .top-body {
     background-color: rgb(178,226,171);
@@ -107,8 +107,21 @@
         border: 1px solid #000;
         width: 650px;
     }
-    .copyright{
+    .copy-right{
         position:fixed;
         right:190px;
         bottom:150px;
+    }
+/*-----new_info_edit.php-----*/
+    .edit-h2{
+        margin-bottom: 20px;
+        background-color: rgb(206,206,206);
+        width: 120px;
+        padding: 10px 10px;
+        border-radius: 8px;
+        box-shadow: 5px 5px 0px 0 rgb(60, 194, 235);
+    }
+    .edit-table{
+        /* border: 1px solid #000; */
+        margin: auto;
     }

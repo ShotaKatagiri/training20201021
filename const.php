@@ -1,11 +1,12 @@
 <?php
 //接続したいDBとログイン時の名前
-// サーバー
+// サーバーver
 // define('HOST','localhost');
 // define('DBNAME','s_katagiri');
 // define('DBUSER','root');
 // define('DBPASS','GomJR5nwq_lm');
 
+//ローカルver
 define('HOST','localhost');
 define('DBNAME','s_katagiri');
 define('DBUSER','root');

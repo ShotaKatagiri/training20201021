@@ -1,26 +1,3 @@
-<?php
-session_start();
-require_once ('../util.inc.php');
-require_once ('Model.php');
-if ($_SESSION == false) {
-    header('Location: login.php');
-    exit;
-}
-try {
-    $model = new Model();
-    $model->connect();
-    $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) ORDER BY release_date DESC LIMIT 10');
-    $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // echo '<pre>';
-    // var_dump($new_info);
-    // echo '</pre>';
-} catch (PDOException $e) {
-    header('Content-Type: text/plain; charset=UTF-8', true, 500);
-    exit($e -> getMessage());
-}
-
-require_once ('../util.inc.php');
-?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -42,8 +19,8 @@ require_once ('../util.inc.php');
                     <nav class="top-navigate">
                         <ul class="top-navi-ul">
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">TOP</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">研修生管理</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">研修生課題管理</a></li>
+                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_edit.php">新規作成</a></li>
+                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">記事記事</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">スキル管理</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">コミュニケーション管理</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">管理者管理</a></li>
@@ -51,17 +28,3 @@ require_once ('../util.inc.php');
                     </nav>
                 </header>
             </div>
-            <h2 class="top-h2">アラートはありません。</h2>
-            <table class="top-table">
-                <tr>新着情報</tr>
-                <?php foreach($new_info as $key => $val):?>
-                <tr>
-                    <td><?=$val['release_date']?></td><td><?=$val['content']?></td>
-                </tr>
-                <?php endforeach;?>
-            </table>
-            <p class="copyright">2020 ebacorp.inc</p>
-            </main>
-        </div>
-    </body>
-</html>
