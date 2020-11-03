@@ -1,14 +1,17 @@
 <?php
 session_start();
 require_once('../util.inc.php');
+require_once('../const.php');
 require_once('Model.php');
+
 if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
     try {
         $model = new Model();
         $model->connect();
-        $stmt = $model->dbh->prepare('INSERT INTO new_info (content, release_date, created_at, updated_at, delete_flg) VALUES(?, DATE(NOW()), NOW(), NOW(), false)')->execute([$_POST['content'],]);
+        $stmt = $model->dbh->prepare('INSERT INTO new_info (content, release_date, created_at) VALUES(?, DATE(NOW()), NOW())')->execute([$_POST['content'],]);
+        // $stmt = $model->dbh->prepare('UPDATE new_info SET content = ?, updated_at = NOW()');
         if (!empty($_POST['content'])) {
-            header('Location: top.php');
+            header('Location: new_info_list.php');
             exit;
         }
     } catch (PDOException $e) {
@@ -18,7 +21,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')){
 }
 ?>
 <?php require_once('header.php');?>
-<h2 class="edit-h2">記事新規登録</h2>
+<h2 class="hero-h2"><?=get_page[$_GET['get_page']]?></h2>
 <form action="" method="post">
     <table class="edit-table">
         <!-- <tr>

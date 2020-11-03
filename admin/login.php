@@ -3,10 +3,13 @@ session_start();
 unset($_SESSION['user_name']);
 require_once('Model.php');
 require_once('../util.inc.php');
+
 if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
+
     if (empty($_POST['id']) or empty($_POST['pass'])) {
         $error['notValues'] = 'idかパスワードが入力されておりません';
     } else {
+        
         try {
             $model = new Model();
             $model->connect();
@@ -15,6 +18,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
             $stmt->execute([$_POST['id']]);
             $result = $stmt->fetch();
             //$resultがあり、postされたidとDBのIDが同じで、$passとpassを元に生成されたハッシュ値が一緒ならばtrue
+
             if ($result &&$_POST['id'] === $result['login_id'] &&password_verify($_POST['pass'], $result['login_pass'])) {
                 //↓logout.phpにログインレコードのユーザーの名前を代入する。
                 $_SESSION['user_name'] = $result['name'];
@@ -23,6 +27,7 @@ if (!empty($_SERVER['REQUEST_METHOD'] == 'POST')) {
             } else {
                 $error['wrong'] = 'IDかパスワードが間違っています。';
             }
+
         } catch(PDOException $e) {
             header('Content-Type: text/plain; charset=UTF-8', true, 500);
             exit($e->getMessage());

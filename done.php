@@ -49,7 +49,7 @@ $mail_send_flag = mb_send_mail($_POST['mail'], $subject, $message, $header);
 ?>
     <!--header-->
 <?php require_once('header.php');?>
-<?php if ($mail_send_flag == true) :?>
+<?php if ($mail_send_flag) :?>
     <h1 class="done-h1"><img src="images/hourse.png" alt="horse" class="horse">送信完了しました。</h1>
     <h2 class="done-h2">この度はお問い合わせいただき、ありがとうございます。</h2>
     <p class="done-p">今後ともKEIBA navi をよろしくお願い致します。</p>

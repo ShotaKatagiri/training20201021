@@ -20,11 +20,12 @@
                         <ul class="top-navi-ul">
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">TOP</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./new_info_edit.php">新規作成</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">記事記事</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">スキル管理</a></li>
+                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_done.php">test登録確認</a></li>
+                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_list.php">リスト一覧</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">コミュニケーション管理</a></li>
                             <li class="top-navi-li"><a class="top-navi-a" href="./top.php">管理者管理</a></li>
                         </ul>
                     </nav>
                 </header>
             </div>
+            <div class="hero">

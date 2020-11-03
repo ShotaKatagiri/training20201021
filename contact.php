@@ -70,7 +70,7 @@ $_SESSION['csrf_token'] = randomToken();
             </tr>
             <tr>
                 <th>お問い合わせ内容<span class="mandatory">（必須）</span></th>
-                <td><textarea name="inquiry" id="" cols="60" rows="10"><?=!empty($_POST['inquiry']) ? h($_POST['inquiry']) : ''?></textarea></td>
+                <td><textarea name="inquiry" cols="60" rows="10"><?=!empty($_POST['inquiry']) ? h($_POST['inquiry']) : ''?></textarea></td>
                 <td class="error"><?=!empty($error_list['inquiry']) ? $error_list['inquiry'] : ''?></td>
             </tr>
         </table>

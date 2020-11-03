@@ -10,6 +10,15 @@
 #home {
     margin: 0;
 }
+/*-----共通-----*/
+.hero-h2{
+    margin-bottom: 20px;
+    background-color: rgb(206,206,206);
+    width: 120px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px 0 rgb(170,170,170);
+}
 
 
 
@@ -33,9 +42,9 @@
 
 /*-----▽top.php▽-----*/
 /* header▼ */
-.top-body {
-    background-color: rgb(178,226,171);
-}
+    .top-body {
+        background-color: rgb(178,226,171);
+    }
     #top-wrapper {
         margin: 0;
         background-color: #fff;
@@ -88,7 +97,6 @@
 
     main{
         text-align: center;
-        margin-bottom: 300px;
     }
     .top-h2{
         margin-bottom: 50px;
@@ -105,23 +113,53 @@
         margin: 0 auto;
         border-collapse: collapse;
         border: 1px solid #000;
-        width: 650px;
+        width: 900px;
     }
     .copy-right{
-        position:fixed;
+        position: absolute;
         right:190px;
-        bottom:150px;
+        bottom:10px;
     }
 /*-----new_info_edit.php-----*/
-    .edit-h2{
-        margin-bottom: 20px;
-        background-color: rgb(206,206,206);
-        width: 120px;
-        padding: 10px 10px;
-        border-radius: 8px;
-        box-shadow: 5px 5px 0px 0 rgb(60, 194, 235);
+
+    .hero{
+        width: 900px;
+        margin: 0 auto;
     }
-    .edit-table{
-        /* border: 1px solid #000; */
-        margin: auto;
+/*-----new_info_list.php-----*/
+    .list-table{
+        border: 1px solid #000;
+    }
+    .list-th{
+        padding: 10px;
+    }
+    /* .list-register{
+        margin: 0px 20px;
+    } */
+    .list-register-a{
+        padding: 3px 8px;
+        background-color: rgb(238,238,238);
+        border: 2px solid rgb(50,50,50);
+        border-radius: 5px;
+        font-size: 15px;
+        color: #000;
+    }
+    .list-table td{
+        padding: 15px;
+    }
+    .list-edit-link{
+        background-color: rgb(238,238,238);
+        border: 2px solid rgb(50,50,50);
+        border-radius: 5px;
+        padding: 3px 8px;
+        font-size: 15px;
+        color: #000;
+    }
+    .list-delete-link{
+        background-color: rgb(238,238,238);
+        border: 2px solid rgb(50,50,50);
+        border-radius: 5px;
+        padding: 3px 8px;
+        font-size: 15px;
+        color: #000;
     }
