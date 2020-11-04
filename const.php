@@ -1,16 +1,4 @@
 <?php
-//接続したいDBとログイン時の名前
-// サーバーver
-// define('HOST','localhost');
-// define('DBNAME','s_katagiri');
-// define('DBUSER','root');
-// define('DBPASS','GomJR5nwq_lm');
-
-//ローカルver
-define('HOST','localhost');
-define('DBNAME','s_katagiri');
-define('DBUSER','root');
-define('DBPASS','root');
 const prefList =
 [
     1 => '北海道', 2 => '青森県', 3 => '岩手県', 4 => '宮城県', 5 => '秋田県', 6 => '山形県', 7 => '福島県', 8 => '茨城県', 9 => '栃木県',
@@ -25,4 +13,6 @@ const get_page =
     0 => '記事一覧',
     1 => '新規登録',
     2 => '編集',
+    3 => '記事登録確認',
+    4 => '記事登録完了',
 ];

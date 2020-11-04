@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/login.css">
-        <title>管理者ログイン</title>
     </head>
     <body class="top-body">
         <div id="top-wrapper">
@@ -18,12 +17,12 @@
                     </div>
                     <nav class="top-navigate">
                         <ul class="top-navi-ul">
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">TOP</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_edit.php">新規作成</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_done.php">test登録確認</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./new_info_list.php">リスト一覧</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">コミュニケーション管理</a></li>
-                            <li class="top-navi-li"><a class="top-navi-a" href="./top.php">管理者管理</a></li>
+                            <li><a class="top-navi-a" href="./top.php">TOP</a></li>
+                            <li><a class="top-navi-a" href="./new_info_list.php">リスト一覧</a></li>
+                            <li><a class="top-navi-a" href="./top.php">〇〇管理</a></li>
+                            <li><a class="top-navi-a" href="./top.php">〇〇管理</a></li>
+                            <li><a class="top-navi-a" href="./top.php">〇〇管理</a></li>
+                            <li><a class="top-navi-a" href="./top.php">〇〇管理</a></li>
                         </ul>
                     </nav>
                 </header>
