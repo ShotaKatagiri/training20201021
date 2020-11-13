@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 768px) {
+    html{
+        font-size: 62.5%;
+    }
+    header{
+        font-size: 1rem;
+
+    }
+    textarea, input{
+        width: 20rem;
+    }
+    option {
+        width: 5rem;
+    }
+    .navi {
+        display: flex;
+        flex-flow: column;
+        text-align: right;
+
+    }
+    .navigate {
+        text-align: right;
+
+    }
+}

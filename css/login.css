@@ -39,6 +39,14 @@
     font-weight: bold;
     margin-bottom: 50px;
 }
+.error{
+    color: rgb(233, 57, 32);
+    font-size: 20px;
+    font-weight: bold;
+}
+.login-auth{
+    margin-top: 20px;
+}
 
 /*-----▽top.php▽-----*/
 /* header▼ */
@@ -79,7 +87,7 @@
         width: 14%;
         font-size: 13px;
     }
-    .top-navi-a{
+    .top-navi-ul a{
         text-align: center;
         color:white;
         display: block;
@@ -101,9 +109,8 @@
     .top-h2{
         margin-bottom: 50px;
     }
-
     h2{
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
     }
     .login-input{
@@ -116,26 +123,63 @@
         width: 900px;
     }
     .copy-right{
-        position: absolute;
-        right:190px;
-        bottom:10px;
+        position: relative;
+        right: -930px;
+        bottom: -90px;
+        text-align: right;
     }
 /*-----new_info_edit.php-----*/
 
-    .hero{
+    .main-contents{
         width: 900px;
         margin: 0 auto;
     }
-/*-----new_info_list.php-----*/
+    .edit-table{
+        margin: 0 auto;
+        width: 100%;
+    }
+    .edit-table th{
+        font-weight: bold;
+    }
+    .edit-table td{
+        vertical-align: middle;
+    }
+    .edit-table-date {
+        text-align: left;
+        padding-left: 10px;
+    }
+    .edit-table-content textarea{
+        height: 215px;
+        width: 810px;
+        text-align: left;
+    }
+    /*-----new_info_list.php-----*/
     .list-table{
         border: 1px solid #000;
     }
-    .list-th{
-        padding: 10px;
+    .list-table th{
+        vertical-align: middle;
     }
-    /* .list-register{
-        margin: 0px 20px;
-    } */
+    .list-table td{
+        word-wrap: break-word;
+        word-break: break-all;
+        vertical-align: middle;
+        padding: 10px 0px;
+    }
+    .list-table th:nth-child(1) {
+        width: 10%;
+    }
+    .list-table th:nth-child(2) {
+        width: 25%;
+    }
+    .list-first-tr input{
+        background-color: #fff;
+        border: none;
+        padding: 0px;
+        font-size: 2px;
+        cursor: pointer;
+        cursor: hand;
+    }
     .list-register-a{
         padding: 3px 8px;
         background-color: rgb(238,238,238);
@@ -144,9 +188,6 @@
         font-size: 15px;
         color: #000;
     }
-    .list-table td{
-        padding: 15px;
-    }
     .list-edit-link{
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
@@ -154,6 +195,7 @@
         padding: 3px 8px;
         font-size: 15px;
         color: #000;
+        margin: 0;
     }
     .list-delete-link{
         background-color: rgb(238,238,238);
@@ -162,4 +204,8 @@
         padding: 3px 8px;
         font-size: 15px;
         color: #000;
+        margin: 0;
+    }
+    .addad{
+        text-align: center;
     }

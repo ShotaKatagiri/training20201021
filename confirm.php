@@ -12,7 +12,7 @@ if ($_POST['name'] == '') {
 }
 if ($_POST['kana'] == '') {
     $error_list['kana'] = 'フリガナを入力してください。';
-} elseif (!preg_match('/^[ァ-ヶー ]+$/u', $_POST['kana'])){
+} elseif (!preg_match('/^[ァ-ヶー 　]+$/u', $_POST['kana'])){
     $error_list['kana'] = 'フリガナの形式が正しくありません。';
 }
 if ($_POST['municipality'] == '') {
@@ -31,7 +31,8 @@ if ($_POST['mail_check'] == '') {
 }
 if ($_POST['inquiry'] == '') {
     $error_list['inquiry'] = 'お問い合わせ内容を入力してください。';
-} elseif (preg_match('/¥A[ r n[:^cntrl:]]{20,}+¥z/u', $_POST['inquiry'])) {
+} elseif (mb_strlen(preg_replace('/\A[\p{C}\p{Z}]++|[\p{C}\p{Z}]++\z/u', '', $_POST['inquiry'])) < 20) {
+    ///\A[\p{C}\p{Z}]++|[\p{C}\p{Z}]++\z/u'は空白を指定、第二引数に変換、対象の文字
     $error_list['inquiry'] = 'お問い合わせ内容は20文字以上でご記入ください。';
 }
 //errorが出た場合の処理

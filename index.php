@@ -24,7 +24,7 @@ $(function() {
     var pageTop = $('.page-top');
     pageTop.hide();
     $(window).scroll(function () {
-        if($(this).scrollTop() > 600) {
+        if ($(this).scrollTop() > 600) {
             pageTop.fadeIn();
         } else {
             pageTop.fadeOut();
