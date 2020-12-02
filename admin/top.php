@@ -6,6 +6,7 @@ if (empty($_SESSION['auth'])) {
     exit;
 }
 
+require_once('../util.inc.php');
 ?>
 <?php require_once('header.php');?>
 <h2 class="top-h2">アラートはありません。</h2>

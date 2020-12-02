@@ -1,22 +1,32 @@
 <?php
-function get_page() {
-    if ($_GET['pages'] == 'conf') {
-        $article_lists['conf'] = '確認';
+function getPage() {
+    $url = pathinfo($_SERVER['PHP_SELF']);
+
+    $first_filename = [
+        'new_info_' => '新着情報管理',
+    ];
+
+    $second_filename = [
+        'list' => '一覧',
+        'conf' => '確認',
+        'done' => '登録完了',
+        'edit' => '',
+    ];
+
+    $get_crud = [
+        'update' => '(編集)',
+        'create' => '(新規登録)',
+    ];
+
+    preg_match('/(\w+)(?<=_)/', $url['filename'], $first_url);
+    preg_match('/(\w+)(?<=_)(\w+)/', $url['filename'], $second_url);
+
+    if (!empty($first_url)) {
+        $first_button_name = $first_filename[($first_url[1])];
+        $second_button_name = $second_filename[($second_url[2])];
+        $crud = (!empty($_GET['crud']) ? $get_crud[($_GET['crud'])] : '');
+
+        echo '<button class="button-getpage">' . $first_button_name . $second_button_name . '<br>' . $crud . '</button>';
     }
-    if ($_GET['pages'] == 'list') {
-        $article_lists['list'] = 'リスト';
-    }
-    if ($_GET['pages'] == 'edit') {
-        $article_lists['edit'] = '編集';
-    }
-    if ($_GET['pages'] == 'sign_up') {
-        $article_lists['sign_up'] = '新規登録';
-    }
-    if ($_GET['pages'] == 'done') {
-        $article_lists['done'] = '完了';
-    }
-    if ($_GET['pages'] == 'top') {
-        $article_lists['top'] = 'Top';
-    }
-    return '記事管理' .  $article_lists[$_GET['pages']];
+
 }

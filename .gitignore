@@ -4,3 +4,10 @@ keibajou.ico
 db.create
 db.const.php
 training.php
+javascripttraing
+admin/fallogin.php
+admin/facebook.php
+admin/vendor/
+admin/collback.php
+admin/composer.json
+admin/Model.php

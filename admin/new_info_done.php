@@ -4,26 +4,36 @@ if (empty($_SESSION['auth'])) {
     header('Location: login.php');
     exit;
 }
-require_once('Model.php');
 
-if ($_GET['pages'] == 'done') {
+require_once('Model.php');
+require_once('../util.inc.php');
+
+if (!empty($_POST['done'])) {
     try {
-        $model = NEW Model();
+        $model = new Model();
         $model->connect();
-        if (empty($_GET['id'])) {
+
+        if ($_GET['crud'] == 'create') {
             //新規登録
-            $stmt = $model->dbh->prepare('INSERT INTO new_info (content, release_date, created_at) VALUES(?, ?, NOW())')->execute([$_POST['content'], $_POST['release_date']]);
+            $sql = 'INSERT INTO new_info (content, release_date, created_at) VALUES (?, ?, NOW())';
+            $input_parameters = [(!empty($_POST['content']) ? h($_POST['content']) : NULL), (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)];
         } else {
             //更新登録
-            $stmt = $model->dbh->prepare('UPDATE new_info SET content = ?, release_date = ?, updated_at = NOW() WHERE id = ?')->execute([$_POST['content'], $_POST['release_date'], $_GET['id']]);
+            $sql = 'UPDATE new_info SET content = ?, release_date = ?, updated_at = NOW() WHERE id = ?';
+            $input_parameters = [(!empty($_POST['content']) ? h($_POST['content']) : NULL), (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL), h($_GET['id'])];
         }
+        $model->dbh->prepare($sql)->execute($input_parameters);
+
     } catch (PDOException $e) {
-        header("Content-type: text/html; charset=utf-8");
-        echo 'サーバーのデータベース接続に失敗いたしました。<br>下記お問い合わせ画面よりご一報ください。<br>'.'<a href='.'../contact.php>'.'お問い合わせ画面に移動します。</a>';
+        $error = 'システム上の問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
     }
 }
+
 ?>
 <?php require_once('header.php');?>
-<h2 class="hero-h2"><?=get_page()?></h2>
-<h3>記事登録完了しました。</h3>
+<?php if (!empty($error)) :?>
+    <p><?=$error?></p>
+<?php else:?>
+    <h3>記事登録完了しました。</h3>
+<?php endif;?>
 <?php require_once('footer.php');?>

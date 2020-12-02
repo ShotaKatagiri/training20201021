@@ -11,13 +11,22 @@
     margin: 0;
 }
 /*-----共通-----*/
-.hero-h2{
+.button-getpage{
     margin-bottom: 20px;
     background-color: rgb(206,206,206);
-    width: 120px;
+    width: 180px;
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 4px 4px 0px 0 rgb(170,170,170);
+    font-size: 15px;
+}
+button {
+    position: relative;
+    left: -380px;
+    border: none;
+}
+footer{
+    text-align: right;
 }
 
 
@@ -98,7 +107,7 @@
         border-bottom: 3px solid rgba(0, 0, 0, 0);
         font-weight: bold;
     }
-    .top-navi-li :hover {
+    .top-navi-ul li :hover {
         border-bottom: 3px solid #BB2388;
     }
 /*main*/
@@ -124,7 +133,6 @@
     }
     .copy-right{
         position: relative;
-        right: -930px;
         bottom: -90px;
         text-align: right;
     }
@@ -137,6 +145,7 @@
     .edit-table{
         margin: 0 auto;
         width: 100%;
+        margin-bottom: 30px;
     }
     .edit-table th{
         font-weight: bold;
@@ -154,25 +163,26 @@
         text-align: left;
     }
     /*-----new_info_list.php-----*/
-    .list-table{
+    tbody tr{
         border: 1px solid #000;
+        margin-bottom: 10px;
     }
-    .list-table th{
+    tbody tr th{
         vertical-align: middle;
     }
-    .list-table td{
+    tbody tr td{
         word-wrap: break-word;
         word-break: break-all;
         vertical-align: middle;
-        padding: 10px 0px;
+        padding: 10px 2px;
     }
-    .list-table th:nth-child(1) {
-        width: 10%;
+    tbody tr th:nth-child(1) {
+        width: 15%;
     }
-    .list-table th:nth-child(2) {
-        width: 25%;
+    tbody tr td:nth-of-type(2) {
+        max-width: 280px;
     }
-    .list-first-tr input{
+    thead input{
         background-color: #fff;
         border: none;
         padding: 0px;
@@ -180,6 +190,7 @@
         cursor: pointer;
         cursor: hand;
     }
+
     .list-register-a{
         padding: 3px 8px;
         background-color: rgb(238,238,238);
@@ -208,4 +219,12 @@
     }
     .addad{
         text-align: center;
+    }
+    tbody tr td:nth-last-child(1){
+        display: flex;
+        justify-content: center;
+    }
+    .list-error{
+        width: 100%;
+        font-size: 20px;
     }

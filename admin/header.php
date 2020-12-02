@@ -21,14 +21,15 @@ require_once('./functions.php');
                         </div>
                         <nav class="top-navigate">
                             <ul class="top-navi-ul">
-                                <li><a href="./top.php?pages=top">TOP</a></li>
-                                <li><a href="./new_info_list.php?pages=list">リスト一覧</a></li>
-                                <li><a href="./top.php?pages=top">〇〇管理</a></li>
-                                <li><a href="./top.php?pages=top">〇〇管理</a></li>
-                                <li><a href="./top.php?pages=top">〇〇管理</a></li>
-                                <li><a href="./top.php?pages=top">〇〇管理</a></li>
+                                <li><a href="./top.php">TOP</a></li>
+                                <li><a href="./new_info_list.php?name=release_date&sort=DESC">新着情報管理</a></li>
+                                <li><a href="./top.php">〇〇管理</a></li>
+                                <li><a href="./top.php">〇〇管理</a></li>
+                                <li><a href="./top.php">〇〇管理</a></li>
+                                <li><a href="./top.php">〇〇管理</a></li>
                             </ul>
                         </nav>
                     </header>
                 </div>
                 <div class="main-contents">
+                    <?php getPage();?>
