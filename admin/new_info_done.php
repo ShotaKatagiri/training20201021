@@ -6,7 +6,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('../util.inc.php');
+require_once('apply.php');
 
 if (!empty($_POST['done'])) {
     try {
@@ -15,12 +15,25 @@ if (!empty($_POST['done'])) {
 
         if ($_GET['crud'] == 'create') {
             //新規登録
-            $sql = 'INSERT INTO new_info (content, release_date, created_at) VALUES (?, ?, NOW())';
-            $input_parameters = [(!empty($_POST['content']) ? h($_POST['content']) : NULL), (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)];
+            $sql = 'INSERT INTO ' .
+                        'new_info (content, release_date, created_at) ' .
+                    'VALUES ' .
+                        '(?, ?, NOW())';
+            $input_parameters =[
+                (!empty($_POST['content']) ? h($_POST['content']) : NULL),
+                (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)
+            ];
         } else {
-            //更新登録
-            $sql = 'UPDATE new_info SET content = ?, release_date = ?, updated_at = NOW() WHERE id = ?';
-            $input_parameters = [(!empty($_POST['content']) ? h($_POST['content']) : NULL), (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL), h($_GET['id'])];
+            //データ更新
+            $sql = 'UPDATE ' .
+                        'new_info ' .
+                    'SET ' .
+                        'content = ?, release_date = ?, updated_at = NOW() WHERE id = ?';
+            $input_parameters =[
+                (!empty($_POST['content']) ? h($_POST['content']) : NULL),
+                (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL),
+                h($_POST['id'])
+            ];
         }
         $model->dbh->prepare($sql)->execute($input_parameters);
 
@@ -34,6 +47,6 @@ if (!empty($_POST['done'])) {
 <?php if (!empty($error)) :?>
     <p><?=$error?></p>
 <?php else:?>
-    <h3>記事登録完了しました。</h3>
+    <h3><?=$_GET['crud'] == 'create' ? '新規登録': '編集' ?>完了しました。</h3>
 <?php endif;?>
 <?php require_once('footer.php');?>

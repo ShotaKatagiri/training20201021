@@ -6,7 +6,8 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('../util.inc.php');
+require_once('apply.php');
+
 $new_info = [];
 
 if ($_GET['crud'] == 'update') {
@@ -23,7 +24,7 @@ if ($_GET['crud'] == 'update') {
     }
 }
 
-$new_info += $_POST;
+$_POST += $new_info;
 
 ?>
 <?php require_once('header.php');?>
@@ -31,16 +32,16 @@ $new_info += $_POST;
     <p><?=$error?></p>
 <?php endif;?>
 <form action="new_info_conf.php?id=<?=!empty($_GET['id']) ? h($_GET['id']) : ''?>&crud=<?=$_GET['crud'] == 'update' ? 'update' : 'create'?>" method="post">
-    <table class="edit-table" border="1" rules="all">
+    <table class="edit-table">
         <tr>
             <th>公開年月日</th>
-            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($new_info['release_date']) ? h($new_info['release_date']) : ''?>"></td>
+            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($_POST['release_date']) ? h($_POST['release_date']) : ''?>"></td>
         </tr>
         <tr>
             <th>記事内容</th>
-            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($new_info['content']) ? h($new_info['content']) : ''?></textarea></td>
+            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($_POST['content']) ? h($_POST['content']) : ''?></textarea></td>
         </tr>
     </table>
-    <p><input type="submit" value="確認画面へ"></p>
+    <p><input class="edit-conf-button" type="submit" value="確認画面へ"></p>
 </form>
 <?php require_once('footer.php');?>

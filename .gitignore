@@ -11,3 +11,4 @@ admin/vendor/
 admin/collback.php
 admin/composer.json
 admin/Model.php
+BasicController.php

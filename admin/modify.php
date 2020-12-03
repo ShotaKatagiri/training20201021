@@ -7,15 +7,15 @@ function getPage() {
     ];
 
     $second_filename = [
-        'list' => '一覧',
+        'list' => 'リスト',
         'conf' => '確認',
-        'done' => '登録完了',
+        'done' => '完了',
         'edit' => '',
     ];
 
     $get_crud = [
-        'update' => '(編集)',
-        'create' => '(新規登録)',
+        'update' => '編集',
+        'create' => '新規登録',
     ];
 
     preg_match('/(\w+)(?<=_)/', $url['filename'], $first_url);
@@ -26,7 +26,7 @@ function getPage() {
         $second_button_name = $second_filename[($second_url[2])];
         $crud = (!empty($_GET['crud']) ? $get_crud[($_GET['crud'])] : '');
 
-        echo '<button class="button-getpage">' . $first_button_name . $second_button_name . '<br>' . $crud . '</button>';
+        echo '<button class="button-getpage">' . $first_button_name . $crud . $second_button_name . '</button>';
     }
 
 }

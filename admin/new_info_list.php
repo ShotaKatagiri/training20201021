@@ -6,7 +6,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('../util.inc.php');
+require_once('apply.php');
 
 try {
     $model = new Model();
@@ -14,7 +14,8 @@ try {
 
     //削除処理
     if (!empty($_POST['delete'])) {
-        $model->dbh->prepare('UPDATE new_info SET delete_flg = 1 WHERE id = ?')->execute([h($_POST['id'])]);
+        $stmt = $model->dbh->prepare('UPDATE new_info SET delete_flg = 1 WHERE id = ?');
+        $stmt->execute([h($_POST['id'])]);
         header('Location: new_info_list.php?name=release_date&sort=DESC');
         exit;
     }
@@ -31,21 +32,21 @@ try {
 <?php if (!empty($error)) :?>
     <p><?=$error?></p>
 <?php else :?>
-    <table class="list-table" border="1" rules="all">
+    <table class="list-table" border="1">
         <thead>
             <tr>
                 <form action="new_info_edit.php?crud=create" method="post">
-                    <th><input type="submit" value="▲" formaction="new_info_list.php?name=id&sort=DESC"><br>ID<br><input type="submit" value="▼" formaction="new_info_list.php?name=id&sort=ASC"></th>
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=id&sort=DESC"><br>ID<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=id&sort=ASC"></th>
                     <th>掲載内容</th>
-                    <th><input type="submit" value="▲" formaction="new_info_list.php?name=release_date&sort=DESC"><br>公開日<br><input type="submit" value="▼" formaction="new_info_list.php?name=release_date&sort=ASC"></th>
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=release_date&sort=DESC"><br>公開日<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=release_date&sort=ASC"></th>
                     <th>作成日時</th>
-                    <th><input type="submit" value="▲" formaction="new_info_list.php?name=updated_at&sort=DESC"><br>更新日<br><input type="submit" value="▼" formaction="new_info_list.php?name=updated_at&sort=ASC"></th>
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=updated_at&sort=DESC"><br>更新日<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=updated_at&sort=ASC"></th>
                     <th class="list-register"><input class="list-register-a" type="submit" value="新規登録"></th>
                 </form>
             </tr>
         </thead>
         <?php if (!empty($new_info)) :?>
-            <tbody>
+            <tbody class="list-table-body">
                 <?php foreach ($new_info as $val) :?>
                     <tr>
                         <td><?=h($val['id'])?></td>
@@ -55,8 +56,7 @@ try {
                         <td><?=!empty($val['updated_at']) ? h(date('Y-m-d g:i:s', strtotime($val['updated_at']))) : ''?></td>
                         <td>
                             <form action="" method="post">
-                                <input class="list-edit-link" type="submit" value="編集" formaction="new_info_edit.php?id=<?=h($val['id'])?>&crud=update">
-                                <input class="list-delete-link event-btn" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                <input class="list-edit-link" type="submit" value="編集" formaction="new_info_edit.php?id=<?=h($val['id'])?>&crud=update"><input class="list-delete-link event-btn" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
                                 <input type="hidden" name="id" value="<?=h($val['id'])?>">
                             </form>
                         </td>
@@ -64,10 +64,9 @@ try {
                 <?php endforeach;?>
             </tbody>
         <?php else :?>
-            <tbody>
-                <tr>
-                    <td class="list-error" colspan="5">表示できる記事が１件もありません</td>
-                    <td style="border-style: none;"></td>
+            <tbody style="border-style: none;">
+                <tr style="border-style: none;">
+                    <td class="list-error" colspan="100">表示できる記事がありません</td>
                 </tr>
             </tbody>
         <?php endif;?>

@@ -1,7 +1,7 @@
                 </div>
             </main>
             <footer>
-                <small class="copy-right">2020 ebacorp.inc</small>
+                <small class="copy-right"><?=date('Y')?> ebacorp.inc</small>
             </footer>
         </div>
     </body>

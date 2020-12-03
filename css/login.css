@@ -14,7 +14,7 @@
 .button-getpage{
     margin-bottom: 20px;
     background-color: rgb(206,206,206);
-    width: 180px;
+    width: 200px;
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 4px 4px 0px 0 rgb(170,170,170);
@@ -139,7 +139,7 @@ footer{
 /*-----new_info_edit.php-----*/
 
     .main-contents{
-        width: 900px;
+        width: 1000px;
         margin: 0 auto;
     }
     .edit-table{
@@ -147,11 +147,21 @@ footer{
         width: 100%;
         margin-bottom: 30px;
     }
-    .edit-table th{
-        font-weight: bold;
+    .edit-table tr td{
+        text-align: left;
     }
-    .edit-table td{
+    .edit-table th, .edit-table td{
+        border:1px solid;
+    }
+    /* .edit-table td{
         vertical-align: middle;
+    } */
+    .edit-table {
+        border-collapse: collapse;
+    }
+    .edit-table tr th:nth-of-type(1){
+        font-weight: bold;
+        width: 150px;
     }
     .edit-table-date {
         text-align: left;
@@ -159,10 +169,17 @@ footer{
     }
     .edit-table-content textarea{
         height: 215px;
-        width: 810px;
+        width: 97%;
         text-align: left;
+        margin: 0px 10px;
+    }
+    .edit-conf-button{
+        padding: 0px 30px;
     }
     /*-----new_info_list.php-----*/
+    thead tr th{
+        font-weight: bold;
+    }
     tbody tr{
         border: 1px solid #000;
         margin-bottom: 10px;
@@ -174,13 +191,31 @@ footer{
         word-wrap: break-word;
         word-break: break-all;
         vertical-align: middle;
-        padding: 10px 2px;
+        padding: 10px 0px;
     }
-    tbody tr th:nth-child(1) {
+    .list-sort-button{
+        color: rgb(117,33,205);
+    }
+    thead tr th:nth-child(1) {
         width: 15%;
     }
+    .list-table-body td:nth-of-type(1) {
+        width: 50px;
+    }
     tbody tr td:nth-of-type(2) {
-        max-width: 280px;
+        width: 250px;
+    }
+    tbody tr td:nth-of-type(3) {
+        width: 120px;
+    }
+    tbody tr td:nth-of-type(4) {
+        width: 180px;
+    }
+    tbody tr td:nth-of-type(5) {
+        width: 180px;
+    }
+    tbody tr td:nth-of-type(6) {
+        width: 100px;
     }
     thead input{
         background-color: #fff;
@@ -192,7 +227,7 @@ footer{
     }
 
     .list-register-a{
-        padding: 3px 8px;
+        padding: 0px 8px;
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
@@ -203,7 +238,7 @@ footer{
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
-        padding: 3px 8px;
+        padding:0px 8px;
         font-size: 15px;
         color: #000;
         margin: 0;
@@ -212,7 +247,7 @@ footer{
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
-        padding: 3px 8px;
+        padding: 0px 8px;
         font-size: 15px;
         color: #000;
         margin: 0;
@@ -220,11 +255,27 @@ footer{
     .addad{
         text-align: center;
     }
-    tbody tr td:nth-last-child(1){
-        display: flex;
-        justify-content: center;
-    }
     .list-error{
+        border-style: none;
         width: 100%;
         font-size: 20px;
+    }
+    .list-table{
+        width: 100%;
+    }
+    /*----- new_info_conf.php -----*/
+    .conf-buttons{
+        display: flex;
+        justify-content: start;
+    }
+    .conf-fix-button{
+        border-radius: 6px;
+        background-color: rgb(155,155,155);
+        padding: 1px 20px;
+        color: white;
+    }
+    .conf-signup-button{
+        border-radius: 6px;
+        padding: 1px 30px;
+        margin-left: 350px;
     }
