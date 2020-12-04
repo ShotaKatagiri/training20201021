@@ -1,5 +1,16 @@
 <?php
+
+function h($string) {
+  return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+}
+
+$get_crud = [
+    'update' => '編集',
+    'create' => '新規登録',
+];
+
 function getPage() {
+
     $url = pathinfo($_SERVER['PHP_SELF']);
 
     $first_filename = [
@@ -13,10 +24,7 @@ function getPage() {
         'edit' => '',
     ];
 
-    $get_crud = [
-        'update' => '編集',
-        'create' => '新規登録',
-    ];
+    global $get_crud;
 
     preg_match('/(\w+)(?<=_)/', $url['filename'], $first_url);
     preg_match('/(\w+)(?<=_)(\w+)/', $url['filename'], $second_url);
@@ -28,5 +36,4 @@ function getPage() {
 
         echo '<button class="button-getpage">' . $first_button_name . $crud . $second_button_name . '</button>';
     }
-
 }

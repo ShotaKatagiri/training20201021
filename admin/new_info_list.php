@@ -6,7 +6,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('apply.php');
+require_once('functions.php');
 
 try {
     $model = new Model();
@@ -19,8 +19,7 @@ try {
         header('Location: new_info_list.php?name=release_date&sort=DESC');
         exit;
     }
-    $stmt = $model->dbh->prepare('SELECT * FROM new_info WHERE delete_flg = 0 ORDER BY ' . h($_GET['name']) . ' ' . h($_GET['sort']));
-    $stmt->execute();
+    $stmt = $model->dbh->query('SELECT * FROM new_info WHERE delete_flg = 0 ORDER BY ' . h($_GET['name']) . ' ' . h($_GET['sort']));
     $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
@@ -66,7 +65,7 @@ try {
         <?php else :?>
             <tbody style="border-style: none;">
                 <tr style="border-style: none;">
-                    <td class="list-error" colspan="100">表示できる記事がありません</td>
+                    <td class="list-error" colspan="6">表示できる記事がありません</td>
                 </tr>
             </tbody>
         <?php endif;?>

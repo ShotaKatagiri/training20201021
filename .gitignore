@@ -1,5 +1,6 @@
 data/
 images/
+keiba-banner/
 keibajou.ico
 db.create
 db.const.php

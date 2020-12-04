@@ -6,7 +6,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('apply.php');
+require_once('functions.php');
 
 if (!empty($_POST['done'])) {
     try {
@@ -15,24 +15,35 @@ if (!empty($_POST['done'])) {
 
         if ($_GET['crud'] == 'create') {
             //新規登録
-            $sql = 'INSERT INTO ' .
-                        'new_info (content, release_date, created_at) ' .
-                    'VALUES ' .
-                        '(?, ?, NOW())';
-            $input_parameters =[
+            $sql =
+                'INSERT INTO new_info ( '
+                    . ' content, '
+                    . ' release_date, '
+                    . ' created_at '
+                . ' ) VALUES ( '
+                    . ' ?, '
+                    . ' ?, '
+                    . ' NOW() '
+                . ' ) '
+            ;
+            $input_parameters = [
                 (!empty($_POST['content']) ? h($_POST['content']) : NULL),
                 (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)
             ];
-        } else {
-            //データ更新
-            $sql = 'UPDATE ' .
-                        'new_info ' .
-                    'SET ' .
-                        'content = ?, release_date = ?, updated_at = NOW() WHERE id = ?';
-            $input_parameters =[
+        } else if ($_GET['crud'] == 'update') {
+            //更新
+            $sql =
+                'UPDATE new_info SET '
+                    . ' content = ?, '
+                    . ' release_date = ?, '
+                    . ' updated_at = NOW() '
+                . ' WHERE '
+                    . ' id = ? '
+            ;
+            $input_parameters = [
                 (!empty($_POST['content']) ? h($_POST['content']) : NULL),
                 (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL),
-                h($_POST['id'])
+                h($_GET['id'])
             ];
         }
         $model->dbh->prepare($sql)->execute($input_parameters);
@@ -46,7 +57,7 @@ if (!empty($_POST['done'])) {
 <?php require_once('header.php');?>
 <?php if (!empty($error)) :?>
     <p><?=$error?></p>
-<?php else:?>
-    <h3><?=$_GET['crud'] == 'create' ? '新規登録': '編集' ?>完了しました。</h3>
+<?php else :?>
+    <h3><?=$get_crud[$_GET['crud']] . '完了しました。'?></h3>
 <?php endif;?>
 <?php require_once('footer.php');?>

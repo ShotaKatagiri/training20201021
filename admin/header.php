@@ -1,5 +1,5 @@
 <?php
-require_once('./modify.php');
+require_once('./functions.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">

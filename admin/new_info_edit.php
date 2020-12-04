@@ -6,7 +6,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('Model.php');
-require_once('apply.php');
+require_once('functions.php');
 
 $new_info = [];
 
@@ -24,22 +24,22 @@ if ($_GET['crud'] == 'update') {
     }
 }
 
-$_POST += $new_info;
+$merge_new_info = $_POST + $new_info;
 
 ?>
 <?php require_once('header.php');?>
 <?php if(!empty($error)) :?>
     <p><?=$error?></p>
 <?php endif;?>
-<form action="new_info_conf.php?id=<?=!empty($_GET['id']) ? h($_GET['id']) : ''?>&crud=<?=$_GET['crud'] == 'update' ? 'update' : 'create'?>" method="post">
+<form action="new_info_conf.php?<?=!empty($_GET['id']) ? 'id=' . h($_GET['id']) . '&' : ''?>crud=<?=$_GET['crud'] == 'update' ? 'update' : 'create'?>" method="post">
     <table class="edit-table">
         <tr>
             <th>公開年月日</th>
-            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($_POST['release_date']) ? h($_POST['release_date']) : ''?>"></td>
+            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($merge_new_info['release_date']) ? h($merge_new_info['release_date']) : ''?>"></td>
         </tr>
         <tr>
             <th>記事内容</th>
-            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($_POST['content']) ? h($_POST['content']) : ''?></textarea></td>
+            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($merge_new_info['content']) ? h($merge_new_info['content']) : ''?></textarea></td>
         </tr>
     </table>
     <p><input class="edit-conf-button" type="submit" value="確認画面へ"></p>

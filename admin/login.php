@@ -5,7 +5,7 @@ unset($_SESSION['user_name']);
 unset($_SESSION['auth']);
 
 require_once('Model.php');
-require_once('apply.php');
+require_once('functions.php');
 
 if (!empty($_POST['authentication'])) {
     if (empty($_POST['id']) || empty($_POST['pass'])) {
