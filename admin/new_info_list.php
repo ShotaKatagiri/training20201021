@@ -1,86 +1,74 @@
 <?php
 session_start();
-if ($_SESSION['user_name'] == false) {
+if (empty($_SESSION['auth'])) {
     header('Location: login.php');
     exit;
 }
-require_once('../util.inc.php');
+
 require_once('Model.php');
-require_once('../const.php');
+require_once('functions.php');
 
 try {
     $model = new Model();
     $model->connect();
 
-    $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY release_date DESC LIMIT 10');
+    //削除処理
+    if (!empty($_POST['delete'])) {
+        $stmt = $model->dbh->prepare('UPDATE new_info SET delete_flg = 1 WHERE id = ?');
+        $stmt->execute([h($_POST['id'])]);
+        header('Location: new_info_list.php?name=release_date&sort=DESC');
+        exit;
+    }
+    $stmt = $model->dbh->query('SELECT * FROM new_info WHERE delete_flg = 0 ORDER BY ' . h($_GET['name']) . ' ' . h($_GET['sort']));
     $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //削除処理
-        if (!empty($_GET['id'])) {
-            $model->dbh->prepare('UPDATE new_info SET delete_flg = 0 WHERE id = ?')->execute([$_GET['id']]);
-            header('Location: new_info_list.php');
-            exit;
-        }
-        //ソート機能
-        if (!empty($_GET['sort']) && $_GET['sort'] == 'id_desc') {
-            $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY id DESC LIMIT 10');
-            $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        if (!empty($_GET['sort']) && $_GET['sort'] == 'id_asc') {
-            $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY id ASC LIMIT 10');
-            $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        if (!empty($_GET['sort']) && $_GET['sort'] == 'release_asc') {
-            $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY release_date ASC LIMIT 10');
-            $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        if (!empty($_GET['sort']) && $_GET['sort'] == 'update_desc') {
-            $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY updated_at DESC LIMIT 10');
-            $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        if (!empty($_GET['sort']) && $_GET['sort'] == 'update_asc') {
-            $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 1 ORDER BY updated_at ASC LIMIT 10');
-            $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-//公開日を押したとしても、今日以降の日にちは表示させない。
+
 } catch (PDOException $e) {
-    header('Content-Type: text/plain; charset=UTF-8', true, 500);
-    exit($e -> getMessage());
+    $error = 'システム上の問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
 }
+
 ?>
 <?php require_once('header.php');?>
-    <h2 class="hero-h2">記事一覧</h2>
-    <form action="" method="post">
-        <table class="list-table">
+<?php if (!empty($error)) :?>
+    <p><?=$error?></p>
+<?php else :?>
+    <table class="list-table" border="1">
+        <thead>
             <tr>
-                <th class="list-th">
-                    <input type="submit" value="▲" formaction="new_info_list.php?sort=id_desc">ID<input type="submit" value="▼" formaction="new_info_list.php?sort=id_asc">
-                </th>
-                <th class="list-th">掲載内容</th>
-                <th>
-                    <input type="submit" value="▲" formaction="new_info_list.php">公開日<input type="submit" value="▼" formaction="new_info_list.php?sort=release_asc">
-                </th>
-                <th class="list-th">作成日時</th>
-                <th class="list-th">
-                    <input type="submit" value="▲" formaction="new_info_list.php?sort=update_desc">更新日<input type="submit" value="▼" formaction="new_info_list.php?sort=update_asc">
-                </th>
-                <th class="list-register"><a class="list-register-a" href="new_info_edit.php?get_page=1">新規登録</a></th>
+                <form action="new_info_edit.php?crud=create" method="post">
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=id&sort=DESC"><br>ID<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=id&sort=ASC"></th>
+                    <th>掲載内容</th>
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=release_date&sort=DESC"><br>公開日<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=release_date&sort=ASC"></th>
+                    <th>作成日時</th>
+                    <th><input class="list-sort-button" type="submit" value="▲" formaction="new_info_list.php?name=updated_at&sort=DESC"><br>更新日<br><input class="list-sort-button" type="submit" value="▼" formaction="new_info_list.php?name=updated_at&sort=ASC"></th>
+                    <th class="list-register"><input class="list-register-a" type="submit" value="新規登録"></th>
+                </form>
             </tr>
-            <?php foreach($new_info as $key => $val):?>
-            <!-- <input type="hidden" value=""> -->
-            <tr>
-                <td><?=$val['id']?></td>
-                <td><?=$val['content']?></td>
-                <td><?=$val['release_date']?></td>
-                <td><?=date('Y-m-d g:i:s', strtotime($val['created_at']))?></td>
-                <td><?=!empty($val['updated_at']) ? date('Y-m-d g:i:s', strtotime($val['updated_at'])) : ''?></td>
-                <td>
-                    <input type="hidden" name="release_date" value="<?=$val['release_date']?>">
-                    <input type="hidden" name="content" value="<?=$val['content']?>">
-                    <input class="list-edit-link" type="submit" name="edit" value="編集" formaction="new_info_edit.php?get_page=2&id=<?=$val['id']?>">
-                    <input class="list-delete-link" type="submit" name="delete" value="削除" formaction="new_info_list.php?id=<?=$val['id']?>">
-                </td>
-            </tr>
-            <?php endforeach;?>
-        </table>
-    </form>
+        </thead>
+        <?php if (!empty($new_info)) :?>
+            <tbody class="list-table-body">
+                <?php foreach ($new_info as $val) :?>
+                    <tr>
+                        <td><?=h($val['id'])?></td>
+                        <td><?=h($val['content'])?></td>
+                        <td><?=h($val['release_date'])?></td>
+                        <td><?=h(date('Y-m-d g:i:s', strtotime($val['created_at'])))?></td>
+                        <td><?=!empty($val['updated_at']) ? h(date('Y-m-d g:i:s', strtotime($val['updated_at']))) : ''?></td>
+                        <td>
+                            <form action="" method="post">
+                                <input class="list-edit-link" type="submit" value="編集" formaction="new_info_edit.php?id=<?=h($val['id'])?>&crud=update"><input class="list-delete-link event-btn" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                <input type="hidden" name="id" value="<?=h($val['id'])?>">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+            </tbody>
+        <?php else :?>
+            <tbody style="border-style: none;">
+                <tr style="border-style: none;">
+                    <td class="list-error" colspan="6">表示できる記事がありません</td>
+                </tr>
+            </tbody>
+        <?php endif;?>
+    </table>
+<?php endif;?>
 <?php require_once('footer.php');?>

@@ -11,13 +11,22 @@
     margin: 0;
 }
 /*-----共通-----*/
-.hero-h2{
+.button-getpage{
     margin-bottom: 20px;
     background-color: rgb(206,206,206);
-    width: 120px;
+    width: 200px;
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 4px 4px 0px 0 rgb(170,170,170);
+    font-size: 15px;
+}
+button {
+    position: relative;
+    left: -380px;
+    border: none;
+}
+footer{
+    text-align: right;
 }
 
 
@@ -38,6 +47,14 @@
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 50px;
+}
+.error{
+    color: rgb(233, 57, 32);
+    font-size: 20px;
+    font-weight: bold;
+}
+.login-auth{
+    margin-top: 20px;
 }
 
 /*-----▽top.php▽-----*/
@@ -79,7 +96,7 @@
         width: 14%;
         font-size: 13px;
     }
-    .top-navi-a{
+    .top-navi-ul a{
         text-align: center;
         color:white;
         display: block;
@@ -90,7 +107,7 @@
         border-bottom: 3px solid rgba(0, 0, 0, 0);
         font-weight: bold;
     }
-    .top-navi-li :hover {
+    .top-navi-ul li :hover {
         border-bottom: 3px solid #BB2388;
     }
 /*main*/
@@ -101,9 +118,8 @@
     .top-h2{
         margin-bottom: 50px;
     }
-
     h2{
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
     }
     .login-input{
@@ -116,50 +132,150 @@
         width: 900px;
     }
     .copy-right{
-        position: absolute;
-        right:190px;
-        bottom:10px;
+        position: relative;
+        bottom: -90px;
+        text-align: right;
     }
 /*-----new_info_edit.php-----*/
 
-    .hero{
-        width: 900px;
+    .main-contents{
+        width: 1000px;
         margin: 0 auto;
     }
-/*-----new_info_list.php-----*/
-    .list-table{
-        border: 1px solid #000;
+    .edit-table{
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: 30px;
     }
-    .list-th{
-        padding: 10px;
+    .edit-table tr td{
+        text-align: left;
     }
-    /* .list-register{
-        margin: 0px 20px;
+    .edit-table th, .edit-table td{
+        border:1px solid;
+    }
+    /* .edit-table td{
+        vertical-align: middle;
     } */
+    .edit-table {
+        border-collapse: collapse;
+    }
+    .edit-table tr th:nth-of-type(1){
+        font-weight: bold;
+        width: 150px;
+    }
+    .edit-table-date {
+        text-align: left;
+        padding-left: 10px;
+    }
+    .edit-table-content textarea{
+        height: 215px;
+        width: 97%;
+        text-align: left;
+        margin: 0px 10px;
+    }
+    .edit-conf-button{
+        padding: 0px 30px;
+    }
+    /*-----new_info_list.php-----*/
+    thead tr th{
+        font-weight: bold;
+    }
+    tbody tr{
+        border: 1px solid #000;
+        margin-bottom: 10px;
+    }
+    tbody tr th{
+        vertical-align: middle;
+    }
+    tbody tr td{
+        word-wrap: break-word;
+        word-break: break-all;
+        vertical-align: middle;
+        padding: 10px 0px;
+    }
+    .list-sort-button{
+        color: rgb(117,33,205);
+    }
+    thead tr th:nth-child(1) {
+        width: 15%;
+    }
+    .list-table-body td:nth-of-type(1) {
+        width: 50px;
+    }
+    tbody tr td:nth-of-type(2) {
+        width: 250px;
+    }
+    tbody tr td:nth-of-type(3) {
+        width: 120px;
+    }
+    tbody tr td:nth-of-type(4) {
+        width: 180px;
+    }
+    tbody tr td:nth-of-type(5) {
+        width: 180px;
+    }
+    tbody tr td:nth-of-type(6) {
+        width: 100px;
+    }
+    thead input{
+        background-color: #fff;
+        border: none;
+        padding: 0px;
+        font-size: 2px;
+        cursor: pointer;
+        cursor: hand;
+    }
+
     .list-register-a{
-        padding: 3px 8px;
+        padding: 0px 8px;
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
         font-size: 15px;
         color: #000;
-    }
-    .list-table td{
-        padding: 15px;
     }
     .list-edit-link{
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
-        padding: 3px 8px;
+        padding:0px 8px;
         font-size: 15px;
         color: #000;
+        margin: 0;
     }
     .list-delete-link{
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
-        padding: 3px 8px;
+        padding: 0px 8px;
         font-size: 15px;
         color: #000;
+        margin: 0;
+    }
+    .addad{
+        text-align: center;
+    }
+    .list-error{
+        border-style: none;
+        width: 100%;
+        font-size: 20px;
+    }
+    .list-table{
+        width: 100%;
+    }
+    /*----- new_info_conf.php -----*/
+    .conf-buttons{
+        display: flex;
+        justify-content: start;
+    }
+    .conf-fix-button{
+        border-radius: 6px;
+        background-color: rgb(155,155,155);
+        padding: 1px 20px;
+        color: white;
+    }
+    .conf-signup-button{
+        border-radius: 6px;
+        padding: 1px 30px;
+        margin-left: 350px;
     }

@@ -235,6 +235,13 @@ main{
 
 /*site */
 
+.index-updated_at{
+    width:  20%;
+}
+.index-content{
+    word-wrap: break-word;
+    word-break: break-all;
+}
 .sitetop{
 	margin:2rem 0;
 }

@@ -1,31 +1,63 @@
 <?php
 session_start();
-if ($_SESSION['user_name'] == false) {
+if (empty($_SESSION['auth'])) {
     header('Location: login.php');
     exit;
 }
 
-require_once('../const.php');
 require_once('Model.php');
-if ($_GET['get_page'] == 4) {
+require_once('functions.php');
 
+if (!empty($_POST['done'])) {
     try {
-        $model = NEW Model();
+        $model = new Model();
         $model->connect();
-        if (!empty($_GET['id'])) {
+
+        if ($_GET['crud'] == 'create') {
             //新規登録
-            $stmt = $model->dbh->prepare('INSERT INTO new_info (content, release_date, created_at) VALUES(?, DATE(NOW()), NOW())')->execute([$_POST['content'],]);
-        } else {
-            //更新登録
-            $stmt = $model->dbh->prepare('UPDATE new_info SET content = ?, release_date = ?, updated_at = NOW() WHERE id = ?')->execute([$_POST['content'], $_POST['release_date'], $_GET['id']]);
+            $sql =
+                'INSERT INTO new_info ( '
+                    . ' content, '
+                    . ' release_date, '
+                    . ' created_at '
+                . ' ) VALUES ( '
+                    . ' ?, '
+                    . ' ?, '
+                    . ' NOW() '
+                . ' ) '
+            ;
+            $input_parameters = [
+                (!empty($_POST['content']) ? h($_POST['content']) : NULL),
+                (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)
+            ];
+        } else if ($_GET['crud'] == 'update') {
+            //更新
+            $sql =
+                'UPDATE new_info SET '
+                    . ' content = ?, '
+                    . ' release_date = ?, '
+                    . ' updated_at = NOW() '
+                . ' WHERE '
+                    . ' id = ? '
+            ;
+            $input_parameters = [
+                (!empty($_POST['content']) ? h($_POST['content']) : NULL),
+                (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL),
+                h($_GET['id'])
+            ];
         }
+        $model->dbh->prepare($sql)->execute($input_parameters);
+
     } catch (PDOException $e) {
-        header('Content-Type: text/plain; charset=UTF-8', true, 500);
-        exit($e -> getMessage());
+        $error = 'システム上の問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
     }
 }
+
 ?>
 <?php require_once('header.php');?>
-<h2 class="hero-h2"><?=get_page[$_GET['get_page']]?></h2>
-<h3>新規登録完了しました。</h3>
+<?php if (!empty($error)) :?>
+    <p><?=$error?></p>
+<?php else :?>
+    <h3><?=$get_crud[$_GET['crud']] . '完了しました。'?></h3>
+<?php endif;?>
 <?php require_once('footer.php');?>
