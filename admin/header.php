@@ -19,6 +19,9 @@ require_once('./functions.php');
                             <h1 class="greeting">ログイン名[<?=$_SESSION['user_name']?>]さん、ご機嫌いかがですか？</h1>
                             <p class="header-logout"><a href="logout.php">ログアウトする</a></p>
                         </div>
+                        <div class="top-header-title">
+                            <h2 class="top-header-h2">KEIBA navi</h2>
+                        </div>
                         <nav class="top-navigate">
                             <ul class="top-navi-ul">
                                 <li><a href="./top.php">TOP</a></li>

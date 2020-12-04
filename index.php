@@ -37,7 +37,7 @@ try {
                 <?php if(!empty($error)):?>
                     <?=$error?>
                 <?php else:?>
-                    <?php foreach($new_info as $key => $val):?>
+                    <?php foreach ($new_info as $key => $val) :?>
                         <dt class="index-updated_at"><?=date('Y-m-d', strtotime($val['updated_at']))?></dt>
                         <dd class="index-content"><?=$val['content']?></dd>
                     <?php endforeach;?>

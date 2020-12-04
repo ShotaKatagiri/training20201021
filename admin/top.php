@@ -7,6 +7,7 @@ if (empty($_SESSION['auth'])) {
 }
 
 require_once('functions.php');
+
 ?>
 <?php require_once('header.php');?>
 <h2 class="top-h2">アラートはありません。</h2>
