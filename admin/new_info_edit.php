@@ -24,7 +24,7 @@ if ($_GET['crud'] == 'update') {
     }
 }
 
-$merge_new_info = $_POST + $new_info;
+$new_info = $_POST + $new_info;
 
 ?>
 <?php require_once('header.php');?>
@@ -35,11 +35,11 @@ $merge_new_info = $_POST + $new_info;
     <table class="edit-table">
         <tr>
             <th>公開年月日</th>
-            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($merge_new_info['release_date']) ? h($merge_new_info['release_date']) : ''?>"></td>
+            <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($new_info['release_date']) ? h($new_info['release_date']) : ''?>"></td>
         </tr>
         <tr>
             <th>記事内容</th>
-            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($merge_new_info['content']) ? h($merge_new_info['content']) : ''?></textarea></td>
+            <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($new_info['content']) ? h($new_info['content']) : ''?></textarea></td>
         </tr>
     </table>
     <p><input class="edit-conf-button" type="submit" value="確認画面へ"></p>

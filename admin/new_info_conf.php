@@ -24,7 +24,7 @@ require_once('functions.php');
     <input type="hidden" name="content" value="<?=h($_POST['content'])?>">
     <div class="conf-buttons">
         <p><input class="conf-fix-button" type="submit" value="修正" formaction="new_info_edit.php?<?=!empty($_GET['id']) ?'id=' . h($_GET['id']) : ''?>&crud=<?=$_GET['crud']?>"></p>
-        <p><input class="conf-signup-button" type="submit" name="done" value="<?=$get_crud[$_GET['crud']]?>完了"></p>
+        <p><input class="conf-signup-button" type="submit" name="done" value="<?=get_crud[$_GET['crud']]?>完了"></p>
     </div>
 </form>
 <?php require_once('footer.php');?>

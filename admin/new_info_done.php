@@ -58,6 +58,6 @@ if (!empty($_POST['done'])) {
 <?php if (!empty($error)) :?>
     <p><?=$error?></p>
 <?php else :?>
-    <h3><?=$get_crud[$_GET['crud']] . '完了しました。'?></h3>
+    <h3 class="done-error"><?=get_crud[$_GET['crud']]?>完了しました。</h3>
 <?php endif;?>
 <?php require_once('footer.php');?>

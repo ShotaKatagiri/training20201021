@@ -1,61 +1,57 @@
 @charset "UTF-8";
 
-* {
-    font-family: "Source Sans Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "Meiryo", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 500;
-}
+    * {
+        font-family: "Source Sans Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 500;
+    }
 
-#home {
-    margin: 0;
-}
-/*-----共通-----*/
-.button-getpage{
-    margin-bottom: 20px;
-    background-color: rgb(206,206,206);
-    width: 200px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    box-shadow: 4px 4px 0px 0 rgb(170,170,170);
-    font-size: 15px;
-}
-button {
-    position: relative;
-    left: -380px;
-    border: none;
-}
-footer{
-    text-align: right;
-}
+    #home {
+        margin: 0;
+    }
+    /*-----共通-----*/
+    .button-getpage{
+        margin-bottom: 20px;
+        background-color: rgb(206,206,206);
+        width: 200px;
+        padding: 10px 10px;
+        border-radius: 8px;
+        box-shadow: 4px 4px 0px 0 rgb(170,170,170);
+        font-size: 15px;
+    }
+    button {
+        position: relative;
+        left: -380px;
+        border: none;
+    }
+    footer{
+        text-align: right;
+    }
+    /* ▽login.php▽ */
 
+    .login-body {
+        background-color: rgb(178,226,171);
+    }
+    #login-wrapper{
+        width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 250px;
 
-
-
-/* ▽login.php▽ */
-
-.login-body {
-    background-color: rgb(178,226,171);
-}
-#login-wrapper{
-    width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 250px;
-
-}
-.login-title{
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 50px;
-}
-.error{
-    color: rgb(233, 57, 32);
-    font-size: 20px;
-    font-weight: bold;
-}
-.login-auth{
-    margin-top: 20px;
-}
+    }
+    .login-title{
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 50px
+    }
+    .error{
+        color: rgb(233, 57, 32);
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .login-auth{
+        margin-top: 20px;
+    }
 
 /*-----▽top.php▽-----*/
 /* header▼ */
@@ -89,7 +85,7 @@ footer{
         list-style:none;
         margin: 0;
         display: flex;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .top-navi-ul li{
         justify-content: start;
@@ -110,6 +106,13 @@ footer{
     .top-navi-ul li :hover {
         border-bottom: 3px solid #BB2388;
     }
+    .top-header-h2 {
+        text-align: left;
+        margin: 5px;
+        margin-left: 20px;
+        font-size: 30px;
+    }
+
 /*main*/
 
     main{
@@ -267,6 +270,7 @@ footer{
     .conf-buttons{
         display: flex;
         justify-content: start;
+        margin-bottom: 150px;
     }
     .conf-fix-button{
         border-radius: 6px;
@@ -278,4 +282,11 @@ footer{
         border-radius: 6px;
         padding: 1px 30px;
         margin-left: 350px;
+    }
+    /*----- new_info_done.php -----*/
+    .done-error{
+        color: blue;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 300px;
     }
