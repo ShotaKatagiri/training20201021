@@ -22,7 +22,7 @@
     }
     button {
         position: relative;
-        left: -380px;
+        left: -375px;
         border: none;
     }
     footer{
@@ -64,7 +64,8 @@
         width: 75%;
         margin: 0 auto;
         padding-bottom: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 200px;
+
     }
     #top-header-inner{
         width: 100%;
@@ -117,6 +118,7 @@
 
     main{
         text-align: center;
+        min-height: 600px;
     }
     .top-h2{
         margin-bottom: 50px;
@@ -142,7 +144,7 @@
 /*-----new_info_edit.php-----*/
 
     .main-contents{
-        width: 1000px;
+        width: 950px;
         margin: 0 auto;
     }
     .edit-table{
@@ -156,9 +158,6 @@
     .edit-table th, .edit-table td{
         border:1px solid;
     }
-    /* .edit-table td{
-        vertical-align: middle;
-    } */
     .edit-table {
         border-collapse: collapse;
     }
@@ -176,8 +175,13 @@
         text-align: left;
         margin: 0px 10px;
     }
+    .edit-table-span{
+        color: red;
+        font-weight: bold;
+    }
     .edit-conf-button{
-        padding: 0px 30px;
+        padding: 1px 40px;
+        border-radius: 6px;
     }
     /*-----new_info_list.php-----*/
     thead tr th{
@@ -267,10 +271,12 @@
         width: 100%;
     }
     /*----- new_info_conf.php -----*/
+    .conf-form-input{
+        min-height: 30px;
+    }
     .conf-buttons{
         display: flex;
         justify-content: start;
-        margin-bottom: 150px;
     }
     .conf-fix-button{
         border-radius: 6px;
@@ -280,8 +286,14 @@
     }
     .conf-signup-button{
         border-radius: 6px;
-        padding: 1px 30px;
-        margin-left: 350px;
+        padding: 1px 40px;
+        margin-left: 330px;
+    }
+    .conf-table-releasedate{
+        height: 30px;
+    }
+    .conf-table-content{
+        height: 220px;
     }
     /*----- new_info_done.php -----*/
     .done-error{

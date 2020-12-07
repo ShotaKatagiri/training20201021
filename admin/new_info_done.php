@@ -26,11 +26,12 @@ if (!empty($_POST['done'])) {
                     . ' NOW() '
                 . ' ) '
             ;
-            $input_parameters = [
+            $input_parameters =
+            [
                 (!empty($_POST['content']) ? h($_POST['content']) : NULL),
                 (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL)
             ];
-        } else if ($_GET['crud'] == 'update') {
+        } elseif ($_GET['crud'] == 'update') {
             //更新
             $sql =
                 'UPDATE new_info SET '
@@ -40,7 +41,8 @@ if (!empty($_POST['done'])) {
                 . ' WHERE '
                     . ' id = ? '
             ;
-            $input_parameters = [
+            $input_parameters =
+            [
                 (!empty($_POST['content']) ? h($_POST['content']) : NULL),
                 (!empty($_POST['release_date']) ? h($_POST['release_date']) : NULL),
                 h($_GET['id'])
@@ -58,6 +60,6 @@ if (!empty($_POST['done'])) {
 <?php if (!empty($error)) :?>
     <p><?=$error?></p>
 <?php else :?>
-    <h3 class="done-error"><?=get_crud[$_GET['crud']]?>完了しました。</h3>
+    <h3 class="done-error"><?=GET_CRUD[$_GET['crud']]?>完了しました。</h3>
 <?php endif;?>
 <?php require_once('footer.php');?>

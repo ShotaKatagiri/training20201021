@@ -18,7 +18,7 @@ $message =
     "\n" . '+・・・・・・・・・・・・・・・・・・+' .
     "\n\n" . 'お名前:' . h($_POST['name']) .
     "\n" . 'フリガナ:' . h($_POST['kana']) .
-    "\n" . '都道府県:' . h(prefList[$_POST['prefecture']]) .
+    "\n" . '都道府県:' . h(PREFLIST[$_POST['prefecture']]) .
     "\n" . '市区町村:' . h($_POST['municipality']) .
     "\n" . '番地:' . h($_POST['address']) .
     "\n" . 'マンション名等:' . (!empty($_POST['apartment']) ? h($_POST['apartment']) : '未記入') .
