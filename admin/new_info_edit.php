@@ -34,11 +34,11 @@ $new_info = $_POST + $new_info;
 <form action="new_info_conf.php?<?=!empty($_GET['id']) ? 'id=' . h($_GET['id']) . '&' : ''?>crud=<?=$_GET['crud'] == 'update' ? 'update' : 'create'?>" method="post">
     <table class="edit-table">
         <tr>
-            <th>公開年月日</th>
+            <th>公開年月日<span class="edit-table-span"> (必須)</span></th>
             <td class="edit-table-date"><input type="text" name="release_date" value="<?=!empty($new_info['release_date']) ? h($new_info['release_date']) : ''?>"></td>
         </tr>
         <tr>
-            <th>記事内容</th>
+            <th>記事内容<span class="edit-table-span"> (必須)</span></th>
             <td class="edit-table-content"><textarea name="content" cols="30" rows="10"><?=!empty($new_info['content']) ? h($new_info['content']) : ''?></textarea></td>
         </tr>
     </table>

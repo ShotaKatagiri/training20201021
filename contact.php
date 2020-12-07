@@ -29,7 +29,7 @@ $_SESSION['csrf_token'] = randomToken();
                 <th>都道府県</th>
                 <td>
                     <select style="width:100%" name="prefecture">
-                        <?php foreach (prefList as $key => $val) :?>
+                        <?php foreach (PREFLIST as $key => $val) :?>
                             <option value="<?=$key?>"<?=h(isset($_POST['prefecture']) && $key == $_POST['prefecture'] ? ' selected' : '' )?>><?=$val?></option>
                         <?php endforeach;?>
                     </select>

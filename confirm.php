@@ -56,7 +56,7 @@ if (isset($error_list)) {
         </tr>
         <tr>
             <th>都道府県</th>
-            <td><?=prefList[$_POST['prefecture']]?></td>
+            <td><?=PREFLIST[$_POST['prefecture']]?></td>
         </tr>
         <tr>
             <th>市区町村</th>

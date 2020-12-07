@@ -13,3 +13,8 @@ admin/collback.php
 admin/composer.json
 admin/Model.php
 BasicController.php
+python/
+.vscode/
+.devcontainer/
+css/fonts
+php/
