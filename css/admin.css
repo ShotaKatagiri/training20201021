@@ -11,6 +11,9 @@
         margin: 0;
     }
     /*-----共通-----*/
+    .main-contents-button {
+        text-align: left;
+    }
     .button-getpage{
         margin-bottom: 20px;
         background-color: rgb(206,206,206);
@@ -21,37 +24,67 @@
         font-size: 15px;
     }
     button {
-        position: relative;
-        left: -375px;
         border: none;
+        outline: none
     }
     footer{
         text-align: right;
     }
-    /* ▽login.php▽ */
+    .copy-right{
+        right: 1%;
+    }
+  /* ▽login.php▽ */
 
-    .login-body {
-        background-color: rgb(178,226,171);
-    }
-    #login-wrapper{
-        width: 1200px;
-        margin: 0 auto;
-        padding-bottom: 250px;
+  .login-body {
+    background-color: rgb(178,226,171);
+}
+#login-wrapper{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 250px;
 
-    }
-    .login-title{
-        font-size: 40px;
-        font-weight: bold;
-        margin-bottom: 50px
-    }
-    .error{
-        color: rgb(233, 57, 32);
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .login-auth{
-        margin-top: 20px;
-    }
+}
+.login-title{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 50px
+}
+.error{
+    color: rgb(233, 57, 32);
+    font-size: 20px;
+    font-weight: bold;
+}
+.login-auth{
+    margin-top: 20px;
+}
+.login-input{
+    width: 200px;
+}
+main{
+    text-align: center;
+    min-height: 500px;
+}
+.top-h2{
+    margin-bottom: 50px;
+}
+h2{
+    font-size: 15px;
+    text-align: center;
+}
+.login-input{
+    width: 200px;
+}
+.top-table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 900px;
+    white-space: pre-wrap;
+}
+.copy-right{
+    position: relative;
+    bottom: -90px;
+    text-align: right;
+}
 
 /*-----▽top.php▽-----*/
 /* header▼ */
@@ -61,10 +94,10 @@
     #top-wrapper {
         margin: 0;
         background-color: #fff;
-        width: 75%;
+        width: 1100px;
         margin: 0 auto;
         padding-bottom: 100px;
-        margin-bottom: 200px;
+        margin-bottom: 100px;
 
     }
     #top-header-inner{
@@ -79,6 +112,10 @@
         margin-top: 5px;
         margin-bottom: 5px;
     }
+    .header-logout {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
     a{
         text-decoration: none;
     }
@@ -86,7 +123,7 @@
         list-style:none;
         margin: 0;
         display: flex;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
     .top-navi-ul li{
         justify-content: start;
@@ -118,7 +155,7 @@
 
     main{
         text-align: center;
-        min-height: 600px;
+        min-height: 500px;
     }
     .top-h2{
         margin-bottom: 50px;
@@ -133,8 +170,8 @@
     .top-table{
         margin: 0 auto;
         border-collapse: collapse;
-        border: 1px solid #000;
         width: 900px;
+        white-space: pre-wrap;
     }
     .copy-right{
         position: relative;
@@ -144,22 +181,24 @@
 /*-----new_info_edit.php-----*/
 
     .main-contents{
-        width: 950px;
+        width: 90%;
         margin: 0 auto;
     }
     .edit-table{
         margin: 0 auto;
         width: 100%;
         margin-bottom: 30px;
+        table-layout: fixed;
+        border-collapse: collapse;
     }
     .edit-table tr td{
         text-align: left;
     }
-    .edit-table th, .edit-table td{
-        border:1px solid;
-    }
     .edit-table {
         border-collapse: collapse;
+    }
+    .edit-table tr th {
+        border-right: 1px solid #000;
     }
     .edit-table tr th:nth-of-type(1){
         font-weight: bold;
@@ -187,6 +226,9 @@
     thead tr th{
         font-weight: bold;
     }
+    thead tr {
+        height: 70px;
+    }
     tbody tr{
         border: 1px solid #000;
         margin-bottom: 10px;
@@ -202,15 +244,21 @@
     }
     .list-sort-button{
         color: rgb(117,33,205);
+        margin-bottom: 5px;
+        margin-top: 5px;
+        font-size: 15px;
     }
     thead tr th:nth-child(1) {
         width: 15%;
     }
     .list-table-body td:nth-of-type(1) {
         width: 50px;
+        word-break: break-all;
     }
     tbody tr td:nth-of-type(2) {
         width: 250px;
+        white-space: pre-wrap;
+        text-align-last: left;
     }
     tbody tr td:nth-of-type(3) {
         width: 120px;
@@ -234,7 +282,7 @@
     }
 
     .list-register-a{
-        padding: 0px 8px;
+        padding: 0px 12px;
         background-color: rgb(238,238,238);
         border: 2px solid rgb(50,50,50);
         border-radius: 5px;
@@ -287,18 +335,24 @@
     .conf-signup-button{
         border-radius: 6px;
         padding: 1px 40px;
-        margin-left: 330px;
+        margin-left: 350px;
     }
     .conf-table-releasedate{
+        display: block;
         height: 30px;
+        border: 0px none;
+        padding-top: 23px;
     }
     .conf-table-content{
-        height: 220px;
+        display: block;
+        min-height: 220px;
+        white-space: pre-wrap;
+        border: 0px none;
     }
     /*----- new_info_done.php -----*/
-    .done-error{
+    .done-report{
         color: blue;
         font-weight: bold;
         font-size: 20px;
-        margin-bottom: 300px;
+        margin-top: 20px;
     }

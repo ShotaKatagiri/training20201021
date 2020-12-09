@@ -139,7 +139,8 @@ main{
 
 .newsbox dt{
 	padding-right:2rem;
-	float:left;
+    float:left;
+    white-space: pre-wrap;
 }
 
 .newsbox dt:before{
@@ -150,7 +151,12 @@ main{
 .newsbox dd{
 	margin-bottom: 4%;
 }
-
+.index-newsbox-none{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: pre-wrap;
+}
 
 
 
@@ -241,6 +247,7 @@ main{
 .index-content{
     word-wrap: break-word;
     word-break: break-all;
+    white-space: pre-wrap;
 }
 .sitetop{
 	margin:2rem 0;
@@ -337,4 +344,10 @@ small{
 	width: 100%;
 }
 
+}
+.index-newsbox-none{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: pre-wrap;
 }
