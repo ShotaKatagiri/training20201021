@@ -12,6 +12,7 @@ function getPage() {
     $first_filename =
     [
         'new_info_' => '新着情報管理',
+        'racecourse_' => '競馬場情報管理'
     ];
 
     $second_filename =

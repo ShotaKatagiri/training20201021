@@ -7,7 +7,7 @@ require_once('./functions.php');
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>KEIBA navi 管理画面</title>
     </head>
     <body class="top-body">
@@ -25,8 +25,8 @@ require_once('./functions.php');
                         <nav class="top-navigate">
                             <ul class="top-navi-ul">
                                 <li><a href="./top.php">top</a></li>
-                                <li><a href="./new_info_list.php?name=release_date&sort=DESC">新着情報管理</a></li>
-                                <li><a href="./top.php">〇〇管理</a></li>
+                                <li><a href="./new_info_list.php">新着情報管理</a></li>
+                                <li><a href="./racecourse_list.php">競馬場情報管理</a></li>
                                 <li><a href="./top.php">〇〇管理</a></li>
                                 <li><a href="./top.php">〇〇管理</a></li>
                                 <li><a href="./top.php">〇〇管理</a></li>
@@ -35,4 +35,4 @@ require_once('./functions.php');
                     </header>
                 </div>
                 <div class="main-contents">
-                    <?php getPage();?>
+                    <p class="main-contents-button"><?php getPage();?></p>

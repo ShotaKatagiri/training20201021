@@ -7,8 +7,7 @@ try {
     $model = new Model();
     $model->connect();
 
-    $stmt = $model->dbh->prepare('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 0 ORDER BY release_date DESC LIMIT 10');
-    $stmt->execute();
+    $stmt = $model->dbh->query('SELECT * FROM new_info WHERE release_date <= DATE(NOW()) AND delete_flg = 0 ORDER BY release_date DESC LIMIT 10');
     $new_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     $error = 'システム上に問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
@@ -34,13 +33,17 @@ try {
         <h2>KEIBA navi からのお知らせ</h2>
         <div class="newsbox">
             <dl>
-                <?php if(!empty($error)):?>
+                <?php if (!empty($error)) :?>
                     <?=$error?>
                 <?php else:?>
-                    <?php foreach ($new_info as $key => $val) :?>
-                        <dt class="index-updated_at"><?=date('Y-m-d', strtotime($val['updated_at']))?></dt>
-                        <dd class="index-content"><?=$val['content']?></dd>
-                    <?php endforeach;?>
+                    <?php if (!empty($new_info)) :?>
+                        <?php foreach ($new_info as $key => $val) :?>
+                            <dt class="index-updated_at"><?=date('Y-m-d', strtotime($val['release_date']))?></dt>
+                            <dd class="index-content"><?=$val['content']?></dd>
+                        <?php endforeach;?>
+                    <?php else :?>
+                        <p class="index-newsbox-none">表示できる新着情報がありません</p>
+                    <?php endif;?>
                 <?php endif;?>
             </dl>
         </div>

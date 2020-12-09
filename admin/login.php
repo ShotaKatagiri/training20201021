@@ -41,7 +41,7 @@ if (!empty($_POST['authentication'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>KEIBA navi 管理者ログイン画面</title>
     </head>
     <body class="login-body">
