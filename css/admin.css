@@ -214,6 +214,12 @@ h2{
         text-align: left;
         margin: 0px 10px;
     }
+    .edit-table-map textarea{
+        height: 90px;
+        width: 97%;
+        text-align: left;
+        margin: 0px 10px;
+    }
     .edit-table-span{
         color: red;
         font-weight: bold;
@@ -355,4 +361,14 @@ h2{
         font-weight: bold;
         font-size: 20px;
         margin-top: 20px;
+    }
+    /*----- racecourse_edit.php -----*/
+    .racecourse-edit-input{
+        width: 800px;
+    }
+    .racecourse-details-h3{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-size: 30px;
+        font-weight: bold;
     }
