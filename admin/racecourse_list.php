@@ -20,26 +20,32 @@ try {
         exit;
     }
     $sql =
-        'SELECT * FROM '
-            . ' racecourse = r '
-        . ' JOIN '
-            . ' racecourse_graded_race = rg '
-        . ' ON '
-            . ' r.id = rg.racecourse_id '
-        . ' WHERE '
-            .' delete_flg = 0 '
 
-    ;
+
+        'SELECT '
+            . ' id, '
+            . ' name, '
+            . ' title, '
+            . ' turn, '
+            . ' created_at, '
+            . ' created_at '
+        . ' FROM '
+            . ' racecourse '
+        . ' ORDER BY '
+            . (!empty($_GET['name']) ? h($_GET['name']) : 'id')
+            . ' '
+            . (!empty($_GET['sort']) ? h($_GET['sort']) : 'DESC')
+        ;
     $stmt = $model->dbh->query($sql);
     $racecourse = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 } catch (PDOException $e) {
     $error = 'システム上の問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
+    echo '<pre>';
+    var_dump($model->dbh->errorInfo());
+    echo '</pre>';
 }
-
-echo '<pre>';
-var_dump($racecourse);
-echo '</pre>';
 
 ?>
 <?php require_once('./header.php');?>
@@ -62,7 +68,9 @@ echo '</pre>';
                         タイトル
                     </th>
                     <th>
-                        ユーザページの表示順
+                        <input class="list-sort-button" type="submit" value="▲" formaction="racecourse_list.php?name=id&sort=DESC"><br>
+                        表示順<br>
+                        <input class="list-sort-button" type="submit" value="▼" formaction="racecourse_list.php?name=id&sort=ASC">
                     </th>
                     <th>
                         作成日時
@@ -79,7 +87,7 @@ echo '</pre>';
             </tr>
         </thead>
         <?php if (!empty($racecourse)) :?>
-            <tbody class="list-table-body">
+            <tbody class="racecourselist-table-body">
                 <?php foreach ($racecourse as $val) :?>
                     <tr>
                         <td>
@@ -102,7 +110,6 @@ echo '</pre>';
                         </td>
                         <td>
                             <form action="" method="post">
-                                <input type="submit" value="詳細" formaction="racecourse_list_details.php?id=<?=h($val['id'])?>&crud=details">
                                 <input class="list-edit-link" type="submit" value="編集" formaction="racecourse_edit.php?id=<?=h($val['id'])?>&crud=update">
                                 <input class="list-delete-link event-btn" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
                                 <input type="hidden" name="id" value="<?=h($val['id'])?>">

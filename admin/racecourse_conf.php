@@ -93,6 +93,33 @@ require_once('functions.php');
         </tr>
     </thead>
 </table>
+<h3>重賞レース</h3>
+<table>
+<tr>
+            <th>
+                説明文（重賞レース）
+            </th>
+            <td colspan="2" class="edit-table-date">
+                <input class="racecourse-edit-input" type="text" name="turn" value="<?=!empty($racecourse['turn']) ? h($racecourse['turn']) : ''?>">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                ユーザーページの表示順（重賞レース）
+            </th>
+            <th>
+                レース名選択
+            </th>
+            <td>
+                <select name="" id="">
+                    <option value="">選択なし</option>
+                    <option value="G1">G1レース</option>
+                    <option value="G2">G2レース</option>
+                    <option value="G3">G3レース</option>
+                </select>
+            </td>
+        </tr>
+-</table>
 <form action="racecourse_done.php?<?=!empty($_GET['id']) ? 'id=' . $_GET['id'] . '&' : ''?>crud=<?=$_GET['crud']?>" method="post">
     <input type="hidden" name="anchor_id" value="<?=h($_POST['anchor_id'])?>">
     <input type="hidden" name="title" value="<?=h($_POST['title'])?>">
