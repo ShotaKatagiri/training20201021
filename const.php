@@ -10,4 +10,5 @@ const PREFLIST = [
 const GET_CRUD = [
     'update' => '編集',
     'create' => '新規登録',
+    'details' => '',
 ];

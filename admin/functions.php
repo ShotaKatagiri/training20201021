@@ -12,7 +12,8 @@ function getPage() {
     $first_filename =
     [
         'new_info_' => '新着情報管理',
-        'racecourse_' => '競馬場情報管理'
+        'racecourse_' => '競馬場情報管理',
+        'racecourse_list_' => '競馬場情報管理リスト',
     ];
 
     $second_filename =
@@ -21,6 +22,7 @@ function getPage() {
         'conf' => '確認',
         'done' => '完了',
         'edit' => '',
+        'details' => '詳細',
     ];
 
     preg_match('/(\w+)(?<=_)/', $url['filename'], $first_url);

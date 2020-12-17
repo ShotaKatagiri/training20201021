@@ -214,6 +214,12 @@ h2{
         text-align: left;
         margin: 0px 10px;
     }
+    .edit-table-map textarea{
+        height: 90px;
+        width: 97%;
+        text-align: left;
+        margin: 0px 10px;
+    }
     .edit-table-span{
         color: red;
         font-weight: bold;
@@ -355,4 +361,39 @@ h2{
         font-weight: bold;
         font-size: 20px;
         margin-top: 20px;
+    }
+    /*----- racecourse_edit.php -----*/
+    .racecourse-edit-input{
+        width: 800px;
+    }
+    .racecourse-details-h3{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    /*----- racecourse_list.php -----*/
+    thead tr th:nth-child(1) {
+        width: 15%;
+    }
+    .list-table-body td:nth-of-type(1) {
+        width: 50px;
+        word-break: break-all;
+    }
+    .racecourselist-table-body tr td:nth-of-type(2) {
+        width: 50px;
+        white-space: pre-wrap;
+        text-align-last: left;
+    }
+    .racecourselist-table-body tr td:nth-of-type(3) {
+        width: 120px;
+    }
+    .racecourselist-table-body tr td:nth-of-type(4) {
+        width: 100px;
+    }
+    .racecourselist-table-body tr td:nth-of-type(5) {
+        width: 180px;
+    }
+    .racecourselist-table-body tr td:nth-of-type(6) {
+        width: 100px;
     }
