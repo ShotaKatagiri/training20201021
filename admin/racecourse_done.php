@@ -8,6 +8,11 @@ if (empty($_SESSION['auth'])) {
 require_once('Model.php');
 require_once('functions.php');
 
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+
+exit;
 if (!empty($_POST['done'])) {
     try {
         $model = new Model();

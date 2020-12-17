@@ -16,10 +16,18 @@ if (!empty($_POST['done'])) {
         if ($_GET['crud'] == 'create') {
             //新規登録
             $sql =
-                'INSERT INTO new_info ( '
-                    . ' content, '
-                    . ' release_date, '
-                    . ' created_at '
+                'INSERT INTO racecourse ( '
+                    . ' anchor_id, '
+                    . ' name, '
+                    . ' title, '
+                    . ' description, '
+                    . ' address, '
+                    . ' tel, '
+                    . ' business_hours, '
+                    . ' map_url, '
+                    . ' turn, '
+                    . ' created_at, '
+                    . ' updated_at '
                 . ' ) VALUES ( '
                     . ' ?, '
                     . ' ?, '
@@ -33,7 +41,17 @@ if (!empty($_POST['done'])) {
         } elseif ($_GET['crud'] == 'update') {
             //更新
             $sql =
-                'UPDATE new_info SET '
+                'UPDATE racecourse SET '
+                    . ' anchor_id, '
+                    . ' name, '
+                    . ' title, '
+                    . ' description, '
+                    . ' address, '
+                    . ' tel, '
+                    . ' business_hours, '
+                    . ' map_url, '
+                    . ' turn, '
+                    . ' created_at, '
                     . ' content = ?, '
                     . ' release_date = ?, '
                     . ' updated_at = NOW() '
