@@ -125,6 +125,7 @@ require_once('functions.php');
 <?php endfor;?>
 <form action="racecourse_done.php?<?=!empty($_GET['id']) ? 'id=' . $_GET['id'] . '&' : ''?>crud=<?=$_GET['crud']?>" method="post">
     <input type="hidden" name="r_anchor_id" value="<?=h($_POST['r_anchor_id'])?>">
+    <input type="hidden" name="r_name" value="<?=h($_POST['r_name'])?>">
     <input type="hidden" name="r_title" value="<?=h($_POST['r_title'])?>">
     <input type="hidden" name="r_description" value="<?=h($_POST['r_description'])?>">
     <input type="hidden" name="r_address" value="<?=h($_POST['r_address'])?>">
