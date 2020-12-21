@@ -79,50 +79,50 @@ echo '</pre>';
     <table class="edit-table">
         <tr>
             <th>アンカー用ID<span class="edit-table-span"> (必須)</span></th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_anchor_id" value="<?=!empty($racecourse['r_anchor_id']) ? h($racecourse['r_anchor_id']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_anchor_id" value="<?=!empty($racecourse['anchor_id']) ? h($racecourse['anchor_id']) : ''?>"></td>
         </tr>
         <tr>
             <th>競馬場名</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_name" value="<?=!empty($racecourse['r_name']) ? h($racecourse['r_name']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_name" value="<?=!empty($racecourse['name']) ? h($racecourse['name']) : ''?>"></td>
         </tr>
         <tr>
             <th>タイトル</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_title" value="<?=!empty($racecourse['r_title']) ? h($racecourse['r_title']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_title" value="<?=!empty($racecourse['title']) ? h($racecourse['title']) : ''?>"></td>
         </tr>
         <tr>
             <th>説明文（レース場）</th>
-            <td class="edit-table-content"><textarea name="r_description" cols="30" rows="10"><?=!empty($racecourse['r_description']) ? h($racecourse['r_description']) : ''?></textarea></td>
+            <td class="edit-table-content"><textarea name="r_description" cols="30" rows="10"><?=!empty($racecourse['description']) ? h($racecourse['description']) : ''?></textarea></td>
         </tr>
         <tr>
             <th>所在地</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_address" value="<?=!empty($racecourse['r_address']) ? h($racecourse['r_address']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_address" value="<?=!empty($racecourse['address']) ? h($racecourse['address']) : ''?>"></td>
         </tr>
         <tr>
             <th>電話番号</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_tel" value="<?=!empty($racecourse['r_tel']) ? h($racecourse['r_tel']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_tel" value="<?=!empty($racecourse['tel']) ? h($racecourse['tel']) : ''?>"></td>
         </tr>
         <tr>
             <th>営業時間</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_business_hours" value="<?=!empty($racecourse['r_business_hours']) ? h($racecourse['r_business_hours']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_business_hours" value="<?=!empty($racecourse['business_hours']) ? h($racecourse['business_hours']) : ''?>"></td>
         </tr>
         <tr>
             <th>GoogleMapURL</th>
-            <td class="edit-table-map"><textarea name="r_map_url" cols="30" rows="10"><?=!empty($racecourse['r_map_url']) ? h($racecourse['r_map_url']) : ''?></textarea></td>
+            <td class="edit-table-map"><textarea name="r_map_url" cols="30" rows="10"><?=!empty($racecourse['map_url']) ? h($racecourse['map_url']) : ''?></textarea></td>
         </tr>
         <tr>
             <th>ユーザーぺージの表示順（レース場）</th>
-            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_turn" value="<?=!empty($racecourse['r_turn']) ? h($racecourse['r_turn']) : ''?>"></td>
+            <td class="edit-table-date"><input class="racecourse-edit-input" type="text" name="r_turn" value="<?=!empty($racecourse['turn']) ? h($racecourse['turn']) : ''?>"></td>
         </tr>
     </table>
     <?php if (!empty($graded)) :?>
-        <?php foreach ($graded as $val) :?>
+        <?php for ($i = 0 ; $i < count($graded) ; $i++) :?>
             <table class="edit-table">
                 <tr>
                     <th>
                         説明文
                     </th>
                     <td>
-                        <input class="racecourse-edit-input" type="text" name="graded_description" value="<?=h($val['rg_desc'])?>">
+                        <input class="racecourse-edit-input" type="text" name="graded[<?=$i?>][rg_description]" value="<?=h($graded[$i]['rg_desc'])?>">
                     </td>
                 </tr>
                 <tr>
@@ -130,7 +130,7 @@ echo '</pre>';
                         ユーザーページの表示順（重賞レース）
                     </th>
                     <td class="edit-table-date">
-                        <input class="racecourse-edit-input" type="text" name="turn" value="<?=!empty($racecourse['turn']) ? h($racecourse['turn']) : ''?>">
+                        <input class="racecourse-edit-input" type="text" name="graded[<?=$i?>][rg_turn]" value="<?=!empty($graded[$i]['rg_turn']) ? h($graded[$i]['rg_turn']) : ''?>">
                     </td>
                 </tr>
                 <tr>
@@ -138,7 +138,7 @@ echo '</pre>';
                     レース名選択
                 </th>
                     <td>
-                        <select name="" id="">
+                        <select name="graded[<?=$i?>][mg_name]" id="">
                             <option value="">選択なし</option>
                             <?php foreach ($graded as $key => $val) :?>
                                 <option value="<?=$val['mg_name']?>"<?=($val['mg_name'] == $val['mg_name'] ? ' selected ' : '')?>><?=$val['mg_name']?></option>
@@ -147,7 +147,8 @@ echo '</pre>';
                     </td>
                 </tr>
             </table>
-        <?php endforeach;?>
+            <input type="hidden" name="graded[<?=$i?>][rg_id]" value="<?=$graded[$i]['rg_id']?>">
+        <?php endfor;?>
     <?php else :?>
     <h3>重賞レース</h3>
     <?php for ($i = 0 ; $i < 5 ; $i++) :?>
@@ -158,7 +159,7 @@ echo '</pre>';
                 説明文（重賞レース）
             </th>
             <td class="edit-table-date">
-                <input class="racecourse-edit-input" type="text" name="graded[<?=$i?>][rg_description]" value="<?= !empty($racecourse['rg_description']) ? h($racecourse['rg_description']) : ''?>">
+                <input class="racecourse-edit-input" type="text" name="graded[<?=$i?>][rg_description]" value="<?=!empty($racecourse['rg_description']) ? h($racecourse['rg_description']) : ''?>">
             </td>
         </tr>
         <tr>
