@@ -4,7 +4,9 @@ if (empty($_SESSION['auth'])) {
     header('Location: login.php');
     exit;
 }
-
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
 require_once('functions.php');
 
 ?>
@@ -16,7 +18,7 @@ require_once('functions.php');
                 ID
             </th>
             <td>
-                <?=!empty($_POST['id']) ? $_POST['id'] : ''?>
+                <?=!empty($_GET['id']) ? $_GET['id'] : ''?>
             </td>
         </tr>
         <tr>
@@ -24,7 +26,7 @@ require_once('functions.php');
                 アンカー用ID
             </th>
             <td>
-                <?=!empty($_POST['anchor_id']) ? $_POST['anchor_id'] : ''?>
+                <?=!empty($_POST['r_anchor_id']) ? $_POST['r_anchor_id'] : ''?>
             </td>
         </tr>
         <tr>
@@ -32,7 +34,7 @@ require_once('functions.php');
                 競馬場名
             </th>
             <td>
-                <?=!empty($_POST['name']) ? $_POST['name'] : ''?>
+                <?=!empty($_POST['r_name']) ? $_POST['r_name'] : ''?>
             </td>
         </tr>
         <tr>
@@ -40,7 +42,7 @@ require_once('functions.php');
                 タイトル
             </th>
             <td>
-                <?=!empty($_POST['title']) ? $_POST['title'] : ''?>
+                <?=!empty($_POST['r_title']) ? $_POST['r_title'] : ''?>
             </td>
         </tr>
         <tr>
@@ -48,7 +50,7 @@ require_once('functions.php');
                 説明文
             </th>
             <td>
-                <?=!empty($_POST['description']) ? $_POST['description'] : ''?>
+                <?=!empty($_POST['r_description']) ? $_POST['r_description'] : ''?>
             </td>
         </tr>
         <tr>
@@ -56,7 +58,7 @@ require_once('functions.php');
                 所在地
             </th>
             <td>
-                <?=!empty($_POST['address']) ? $_POST['address'] : ''?>
+                <?=!empty($_POST['r_address']) ? $_POST['r_address'] : ''?>
             </td>
         </tr>
         <tr>
@@ -64,7 +66,7 @@ require_once('functions.php');
                 電話番号
             </th>
             <td>
-                <?=!empty($_POST['tel']) ? $_POST['tel'] : ''?>
+                <?=!empty($_POST['r_tel']) ? $_POST['r_tel'] : ''?>
             </td>
         </tr>
         <tr>
@@ -72,7 +74,7 @@ require_once('functions.php');
                 営業時間
             </th>
             <td>
-                <?=!empty($_POST['business_hours']) ? $_POST['business_hours'] : ''?>
+                <?=!empty($_POST['r_business_hours']) ? $_POST['r_business_hours'] : ''?>
             </td>
         </tr>
         <tr>
@@ -80,7 +82,7 @@ require_once('functions.php');
                 GoogleMapURL
             </th>
             <td>
-                <?=!empty($_POST['map_url']) ? $_POST['map_url'] : ''?>
+                <?=!empty($_POST['r_map_url']) ? $_POST['r_map_url'] : ''?>
             </td>
         </tr>
         <tr>
@@ -88,47 +90,56 @@ require_once('functions.php');
                 ユーザページの表示順
             </th>
             <td>
-                <?=!empty($_POST['turn']) ? $_POST['turn'] : ''?>
+                <?=!empty($_POST['r_turn']) ? $_POST['r_turn'] : ''?>
             </td>
         </tr>
     </thead>
 </table>
 <h3>重賞レース</h3>
-<table>
-<tr>
-            <th>
-                説明文（重賞レース）
-            </th>
-            <td colspan="2" class="edit-table-date">
-                <input class="racecourse-edit-input" type="text" name="turn" value="<?=!empty($racecourse['turn']) ? h($racecourse['turn']) : ''?>">
-            </td>
-        </tr>
-        <tr>
-            <th>
-                ユーザーページの表示順（重賞レース）
-            </th>
-            <th>
-                レース名選択
-            </th>
-            <td>
-                <select name="" id="">
-                    <option value="">選択なし</option>
-                    <option value="G1">G1レース</option>
-                    <option value="G2">G2レース</option>
-                    <option value="G3">G3レース</option>
-                </select>
-            </td>
-        </tr>
--</table>
+<?php for ($i = 0 ; $i < count($_POST['graded']) ; $i++) :?>
+    <table>
+            <tr>
+                <th>
+                    説明文（重賞レース）
+                </th>
+                <td colspan="2" class="edit-table-date">
+                    <?=$_POST['graded'][$i]['rg_description']?>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    ユーザーページの表示順（重賞レース）
+                </th>
+                <td>
+                    <?=$_POST['graded'][$i]['rg_turn']?>
+                </td>
+            </tr>
+                <th>
+                    レース名選択
+                </th>
+                <td>
+                <?=$_POST['graded'][$i]['mg_name']?>
+                </td>
+            </tr>
+    </table>
+<?php endfor;?>
 <form action="racecourse_done.php?<?=!empty($_GET['id']) ? 'id=' . $_GET['id'] . '&' : ''?>crud=<?=$_GET['crud']?>" method="post">
-    <input type="hidden" name="anchor_id" value="<?=h($_POST['anchor_id'])?>">
-    <input type="hidden" name="title" value="<?=h($_POST['title'])?>">
-    <input type="hidden" name="description" value="<?=h($_POST['description'])?>">
-    <input type="hidden" name="address" value="<?=h($_POST['address'])?>">
-    <input type="hidden" name="tel" value="<?=h($_POST['tel'])?>">
-    <input type="hidden" name="business_hours" value="<?=h($_POST['business_hours'])?>">
-    <input type="hidden" name="map_url" value="<?=h($_POST['map_url'])?>">
-    <input type="hidden" name="turn" value="<?=h($_POST['turn'])?>">
+    <input type="hidden" name="r_anchor_id" value="<?=h($_POST['r_anchor_id'])?>">
+    <input type="hidden" name="r_name" value="<?=h($_POST['r_name'])?>">
+    <input type="hidden" name="r_title" value="<?=h($_POST['r_title'])?>">
+    <input type="hidden" name="r_description" value="<?=h($_POST['r_description'])?>">
+    <input type="hidden" name="r_address" value="<?=h($_POST['r_address'])?>">
+    <input type="hidden" name="r_tel" value="<?=h($_POST['r_tel'])?>">
+    <input type="hidden" name="r_business_hours" value="<?=h($_POST['r_business_hours'])?>">
+    <input type="hidden" name="r_map_url" value="<?=h($_POST['r_map_url'])?>">
+    <input type="hidden" name="r_turn" value="<?=h($_POST['r_turn'])?>">
+    <?php for ($i = 0 ; $i < count($_POST['graded']) ; $i++) :?>
+    <?=!empty($_POST['graded'][$i]['rg_id']) ? '<input type="hidden" name="graded[' . $i . '][rg_id]" value="' . $_POST['graded'][$i]['rg_id'] . '">' : ''?>
+    <?=!empty($_POST['graded'][$i]['rg_description']) ? '<input type="hidden" name="graded[' . $i . '][rg_description]" value="' . $_POST['graded'][$i]['rg_description'] . '">' : ''?>
+    <?=!empty($_POST['graded'][$i]['rg_turn']) ? '<input type="hidden" name="graded[' . $i . '][rg_turn]" value="' . $_POST['graded'][$i]['rg_turn'] . '">' : ''?>
+    <?=!empty($_POST['graded'][$i]['mg_name']) ? '<input type="hidden" name="graded[' . $i . '][mg_name]" value="' . $_POST['graded'][$i]['mg_name'] . '">' : ''?>
+
+    <?php endfor;?>
     <div class="conf-buttons">
         <p><input class="conf-fix-button" type="submit" value="修正" formaction="racecourse_edit.php?<?=!empty($_GET['id']) ? 'id=' . h($_GET['id']) : ''?>&crud=<?=$_GET['crud']?>"></p>
         <p class="conf-signup-p"><input class="conf-signup-button" type="submit" name="done" value="<?=GET_CRUD[$_GET['crud']]?>完了"></p>

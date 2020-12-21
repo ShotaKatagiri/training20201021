@@ -20,8 +20,6 @@ try {
         exit;
     }
     $sql =
-
-
         'SELECT '
             . ' id, '
             . ' name, '
@@ -31,10 +29,13 @@ try {
             . ' created_at '
         . ' FROM '
             . ' racecourse '
+        . ' WHERE '
+            . ' delete_flg = 0 '
         . ' ORDER BY '
             . (!empty($_GET['name']) ? h($_GET['name']) : 'id')
             . ' '
             . (!empty($_GET['sort']) ? h($_GET['sort']) : 'DESC')
+
         ;
     $stmt = $model->dbh->query($sql);
     $racecourse = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,9 +43,6 @@ try {
 
 } catch (PDOException $e) {
     $error = 'システム上の問題が発生しました。<br>早急に対処いたしますので、下記システム管理者までご連絡ください。<br>090-0000-0000';
-    echo '<pre>';
-    var_dump($model->dbh->errorInfo());
-    echo '</pre>';
 }
 
 ?>
@@ -111,7 +109,7 @@ try {
                         <td>
                             <form action="" method="post">
                                 <input class="list-edit-link" type="submit" value="編集" formaction="racecourse_edit.php?id=<?=h($val['id'])?>&crud=update">
-                                <input class="list-delete-link event-btn" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                <input class="list-delete-link" name="delete" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
                                 <input type="hidden" name="id" value="<?=h($val['id'])?>">
                             </form>
                         </td>

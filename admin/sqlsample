@@ -304,3 +304,41 @@
                                 <?=$val['mg_class']?>
                             </td>
                     </tr>
+
+
+
+
+
+                       <?php foreach ($graded as $val) :?>
+            <table class="edit-table">
+                <tr>
+                    <th>
+                        説明文
+                    </th>
+                    <td>
+                        <input class="racecourse-edit-input" type="text" name="rg_description" value="<?=h($val['rg_desc'])?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        ユーザーページの表示順（重賞レース）
+                    </th>
+                    <td class="edit-table-date">
+                        <input class="racecourse-edit-input" type="text" name="rg_turn" value="<?=!empty($val['rg_turn']) ? h($val['rg_turn']) : ''?>">
+                    </td>
+                </tr>
+                <tr>
+                <th>
+                    レース名選択
+                </th>
+                    <td>
+                        <select name="" id="">
+                            <option value="">選択なし</option>
+                            <?php foreach ($graded as $key => $val) :?>
+                                <option value="<?=$val['mg_name']?>"<?=($val['mg_name'] == $val['mg_name'] ? ' selected ' : '')?>><?=$val['mg_name']?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        <?php endforeach;?>
